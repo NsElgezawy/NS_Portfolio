@@ -149,18 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
   const searchInput = document.getElementById('project-search');
+  const noResults = document.getElementById('no-results');
   let activeFilter = 'all';
 
   function applyProjectFilters() {
     const query = (searchInput && searchInput.value || '').trim().toLowerCase();
+    let visibleCount = 0;
 
     projectCards.forEach(card => {
       const categories = (card.getAttribute('data-category') || '').split(',');
       const text = card.textContent.toLowerCase();
       const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
       const matchesSearch = query === '' || text.includes(query);
-      card.classList.toggle('is-hidden', !(matchesFilter && matchesSearch));
+      const show = matchesFilter && matchesSearch;
+      card.classList.toggle('is-hidden', !show);
+      if (show) visibleCount++;
     });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount !== 0);
+    }
   }
 
   filterButtons.forEach(btn => {
@@ -175,6 +183,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (searchInput) {
     searchInput.addEventListener('input', applyProjectFilters);
   }
+
+  /* ---------- Video Modal ---------- */
+  const videoModal = document.getElementById('video-modal');
+  const videoFrameWrap = document.getElementById('video-modal-frame');
+  const videoModalClose = document.getElementById('video-modal-close');
+
+  function openVideoModal(youtubeId) {
+    if (!videoModal || !videoFrameWrap) return;
+    videoFrameWrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0" title="Project demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    videoModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    if (!videoModal || !videoFrameWrap) return;
+    videoModal.classList.remove('open');
+    videoFrameWrap.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-youtube-id]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      openVideoModal(trigger.getAttribute('data-youtube-id'));
+    });
+  });
+
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  if (videoModal) {
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideoModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
+  });
 
   /* ---------- Resume Download Tracking ---------- */
   const resumeLinks = document.querySelectorAll('.resume-download-link');

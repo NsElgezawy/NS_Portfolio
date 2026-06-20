@@ -28,60 +28,68 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<style>
-* { font-family: 'Inter', sans-serif; }
-</style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+<body>
 
 <!-- Loading Screen -->
 <div id="loader">
 <div class="loader-ring"></div>
-<span class="loader-text">Loading Portfolio</span>
+<span class="loader-text">Initializing Portfolio</span>
 </div>
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+<nav class="fixed top-0 w-full nav-glass z-50">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center py-4">
-<a href="#home" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">A.M</a>
-<div class="hidden md:flex items-center space-x-7">
-<a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
-<a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-<a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
-<a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-<a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-<a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-<a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
-<a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+<div class="flex justify-between items-center py-3.5">
+<a href="#home" class="logo-mark" aria-label="Home">
+<svg class="logo-hex" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="var(--primary)"/>
+<stop offset="100%" stop-color="var(--accent)"/>
+</linearGradient>
+</defs>
+<polygon points="50,3 93,26 93,74 50,97 7,74 7,26" fill="url(#logoGrad)"/>
+<text x="50" y="62" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="34" fill="#ffffff">NS</text>
+</svg>
+<span class="logo-pulse"></span>
+<span class="logo-text hidden sm:inline">Anas <span>El-Gezawy</span></span>
+</a>
+<div class="hidden md:flex items-center space-x-7 text-sm">
+<a href="#home" class="text-muted hover:text-[var(--primary)] transition-colors">Home</a>
+<a href="#about" class="text-muted hover:text-[var(--primary)] transition-colors">About</a>
+<a href="#education" class="text-muted hover:text-[var(--primary)] transition-colors">Education</a>
+<a href="#experience" class="text-muted hover:text-[var(--primary)] transition-colors">Experience</a>
+<a href="#skills" class="text-muted hover:text-[var(--primary)] transition-colors">Skills</a>
+<a href="#projects" class="text-muted hover:text-[var(--primary)] transition-colors">Projects</a>
+<a href="#certifications" class="text-muted hover:text-[var(--primary)] transition-colors">Certifications</a>
+<a href="#contact" class="text-muted hover:text-[var(--primary)] transition-colors">Contact</a>
 </div>
 <div class="flex items-center space-x-2">
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link hidden sm:inline-flex items-center text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link hidden sm:inline-flex btn-primary !py-2 !px-4 text-sm">
 <i class="fas fa-download mr-2"></i> Resume
 </a>
-<button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" aria-label="Toggle theme">
+<button id="theme-toggle" class="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--primary)] transition-colors" aria-label="Toggle theme">
 <i class="fas fa-moon dark:hidden"></i>
 <i class="fas fa-sun hidden dark:block"></i>
 </button>
-<button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700" aria-label="Toggle menu">
+<button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)]" aria-label="Toggle menu">
 <i class="fas fa-bars"></i>
 </button>
 </div>
 </div>
 <div id="mobile-menu" class="md:hidden">
-<div class="flex flex-col space-y-3 pb-4">
-<a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
-<a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-<a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
-<a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-<a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-<a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-<a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
-<a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link sm:hidden inline-flex items-center justify-center text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg">
+<div class="flex flex-col space-y-3 pb-4 text-sm">
+<a href="#home" class="text-muted hover:text-[var(--primary)] transition-colors">Home</a>
+<a href="#about" class="text-muted hover:text-[var(--primary)] transition-colors">About</a>
+<a href="#education" class="text-muted hover:text-[var(--primary)] transition-colors">Education</a>
+<a href="#experience" class="text-muted hover:text-[var(--primary)] transition-colors">Experience</a>
+<a href="#skills" class="text-muted hover:text-[var(--primary)] transition-colors">Skills</a>
+<a href="#projects" class="text-muted hover:text-[var(--primary)] transition-colors">Projects</a>
+<a href="#certifications" class="text-muted hover:text-[var(--primary)] transition-colors">Certifications</a>
+<a href="#contact" class="text-muted hover:text-[var(--primary)] transition-colors">Contact</a>
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link sm:hidden btn-primary text-sm justify-center">
 <i class="fas fa-download mr-2"></i> Download Resume
 </a>
 </div>
@@ -90,18 +98,19 @@
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="min-h-screen gradient-bg tech-pattern flex items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-black/20"></div>
+<section id="home" class="min-h-screen gradient-bg grid-overlay flex items-center justify-center relative overflow-hidden">
+<div class="glow-orb w-72 h-72 bg-[var(--accent)] top-10 left-10"></div>
+<div class="glow-orb w-96 h-96 bg-[var(--primary)] bottom-0 right-0" style="animation-delay:2s;"></div>
 <div class="relative z-10 text-center text-white px-4 pt-24 pb-16 max-w-5xl mx-auto">
 <div class="fade-in">
-<p class="uppercase tracking-[0.3em] text-sm text-blue-200 mb-4">Alexandria, Egypt</p>
-<h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
+<p class="eyebrow text-blue-100 mb-4">Alexandria, Egypt</p>
+<h1 class="text-4xl sm:text-5xl md:text-7xl font-bold font-display mb-4">
 Anas Mohamed El-Gezawy
 </h1>
 <h2 class="text-xl md:text-2xl font-light mb-2 text-blue-100">
 Building Explainable AI Systems for Real-World Impact
 </h2>
-<div class="text-xl md:text-2xl font-semibold mb-6 h-8 flex items-center justify-center">
+<div class="text-xl md:text-2xl font-semibold font-mono mb-6 h-8 flex items-center justify-center">
 <span id="typing-text"></span><span class="typing-cursor">&nbsp;</span>
 </div>
 <p class="text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed text-blue-50">
@@ -109,19 +118,19 @@ AI engineer and final-year Artificial Intelligence student specializing in Natur
 Computer Vision, with hands-on experience turning research into deployed, real-world applications.
 </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-<a href="#projects" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+<a href="#projects" class="btn-primary">
 <i class="fas fa-diagram-project mr-2"></i> View Projects
 </a>
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link btn-outline">
 <i class="fas fa-download mr-2"></i> Download Resume
 </a>
-<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="btn-outline">
 <i class="fab fa-github mr-2"></i> View GitHub Profile
 </a>
 </div>
 
 <!-- Quick Stats -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto glass rounded-2xl py-6 px-4">
 <div>
 <div class="stat-number text-3xl md:text-4xl font-bold" data-count="15" data-suffix="+">0</div>
 <p class="text-sm text-blue-100 mt-1">AI Projects</p>
@@ -147,36 +156,38 @@ Computer Vision, with hands-on experience turning research into deployed, real-w
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-white dark:bg-gray-900">
+<section id="about" class="py-20 bg-base">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">About Me</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Get to Know Me</p>
+<h2 class="text-4xl font-bold font-display mb-4">About Me</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 <div class="grid md:grid-cols-2 gap-12 items-center">
 <!-- Profile Image -->
 <div class="fade-in">
-<div class="w-72 h-72 md:w-80 md:h-80 mx-auto">
+<div class="w-72 h-72 md:w-80 md:h-80 mx-auto relative">
+<div class="absolute -inset-3 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] opacity-20 blur-2xl"></div>
 <img src="assets/profile.png" alt="Anas Mohamed El-Gezawy"
-class="rounded-full object-cover w-full h-full shadow-lg">
+class="relative rounded-full object-cover w-full h-full shadow-lg border-4" style="border-color: var(--surface);">
 </div>
 </div>
 <!-- About Text -->
 <div class="fade-in">
-<p class="text-lg leading-relaxed mb-5">
+<p class="text-lg leading-relaxed mb-5 text-muted">
 My path into AI started with curiosity about how machines could understand language and images the way
 people do. That curiosity turned into a structured pursuit: a Bachelor's degree in Artificial Intelligence,
 an AI Engineer track with Microsoft through the Digital Egypt Pioneers Initiative, internships spanning
 banking and research, and a growing portfolio of projects across NLP, Computer Vision, and Reinforcement
 Learning.
 </p>
-<p class="text-lg leading-relaxed mb-5">
+<p class="text-lg leading-relaxed mb-5 text-muted">
 Today, I am focused on building AI systems that are not just accurate, but explainable and trustworthy —
 work that comes through clearly in my graduation research on credibility assessment and contradiction
 detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph Neural Networks.
 </p>
 <div class="mb-6">
-<h3 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Current Focus Areas</h3>
+<h3 class="font-semibold mb-2 text-[var(--primary)]">Current Focus Areas</h3>
 <div class="flex flex-wrap gap-2">
 <span class="tag-pill">Machine Learning</span>
 <span class="tag-pill">Deep Learning</span>
@@ -187,20 +198,20 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-<i class="fas fa-location-dot text-blue-600 mb-1"></i>
+<div class="card p-4">
+<i class="fas fa-location-dot text-[var(--primary)] mb-1"></i>
 <p class="text-sm font-semibold">Location</p>
-<p class="text-sm text-gray-600 dark:text-gray-400">Alexandria, Egypt</p>
+<p class="text-sm text-muted">Alexandria, Egypt</p>
 </div>
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-<i class="fas fa-graduation-cap text-blue-600 mb-1"></i>
+<div class="card p-4">
+<i class="fas fa-graduation-cap text-[var(--primary)] mb-1"></i>
 <p class="text-sm font-semibold">University</p>
-<p class="text-sm text-gray-600 dark:text-gray-400">Menoufia University</p>
+<p class="text-sm text-muted">Menoufia University</p>
 </div>
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-<i class="fas fa-calendar text-blue-600 mb-1"></i>
+<div class="card p-4">
+<i class="fas fa-calendar text-[var(--primary)] mb-1"></i>
 <p class="text-sm font-semibold">Graduation</p>
-<p class="text-sm text-gray-600 dark:text-gray-400">Expected Jul 2027</p>
+<p class="text-sm text-muted">Expected Jul 2027</p>
 </div>
 </div>
 </div>
@@ -209,44 +220,45 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Education Section -->
-<section id="education" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="education" class="py-20 bg-alt dot-grid">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Education</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Academic Background</p>
+<h2 class="text-4xl font-bold font-display mb-4">Education</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 <div class="max-w-4xl mx-auto">
-<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg card-hover fade-in">
+<div class="card card-hover p-8 fade-in">
 <div class="flex flex-col sm:flex-row sm:items-center mb-6">
-<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-0 sm:mr-6 mb-4 sm:mb-0">
+<div class="w-16 h-16 rounded-full flex items-center justify-center mr-0 sm:mr-6 mb-4 sm:mb-0" style="background: linear-gradient(135deg, var(--primary), var(--accent));">
 <i class="fas fa-graduation-cap text-white text-2xl"></i>
 </div>
 <div>
-<h3 class="text-2xl font-bold">Bachelor of Artificial Intelligence</h3>
-<p class="text-blue-600 dark:text-blue-400 font-semibold">Menoufia University &mdash; Data Science Specialization</p>
-<p class="text-gray-600 dark:text-gray-400">Expected Graduation: July 2027</p>
+<h3 class="text-2xl font-bold font-display">Bachelor of Artificial Intelligence</h3>
+<p class="text-[var(--primary)] font-semibold">Menoufia University &mdash; Data Science Specialization</p>
+<p class="text-muted">Expected Graduation: July 2027</p>
 </div>
 </div>
 
 <div class="grid sm:grid-cols-3 gap-4 mb-6">
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
-<p class="text-sm text-gray-500 dark:text-gray-400">GPA</p>
-<p class="text-2xl font-bold text-blue-600 dark:text-blue-400">3.41</p>
+<div class="card p-4 text-center">
+<p class="text-sm text-muted">GPA</p>
+<p class="text-2xl font-bold text-gradient font-display">3.41</p>
 </div>
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
-<p class="text-sm text-gray-500 dark:text-gray-400">Specialization</p>
+<div class="card p-4 text-center">
+<p class="text-sm text-muted">Specialization</p>
 <p class="text-lg font-semibold">Data Science</p>
 </div>
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
-<p class="text-sm text-gray-500 dark:text-gray-400">Expected Graduation</p>
+<div class="card p-4 text-center">
+<p class="text-sm text-muted">Expected Graduation</p>
 <p class="text-lg font-semibold">Jul 2027</p>
 </div>
 </div>
 
 <div class="grid md:grid-cols-2 gap-4 mb-6">
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<div class="card p-4">
 <h4 class="font-semibold mb-2">Core Coursework</h4>
-<ul class="text-sm space-y-1">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Machine Learning Algorithms</li>
 <li>&bull; Data Structures &amp; Algorithms</li>
 <li>&bull; Statistical Analysis</li>
@@ -254,9 +266,9 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <li>&bull; Probability &amp; Linear Algebra</li>
 </ul>
 </div>
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<div class="card p-4">
 <h4 class="font-semibold mb-2">Specialized Areas</h4>
-<ul class="text-sm space-y-1">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Deep Learning &amp; Neural Networks</li>
 <li>&bull; Computer Vision</li>
 <li>&bull; Natural Language Processing</li>
@@ -266,9 +278,9 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </div>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<div class="card p-4">
 <h4 class="font-semibold mb-2">Academic Achievements</h4>
-<ul class="text-sm space-y-1">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Vice Head of EduGate Student Activity (2023&ndash;2025), leading a 20+ member academic support team</li>
 <li>&bull; Recognized as Top Team Leader in the DEPI Leadership Program (2025)</li>
 <li>&bull; Guest Speaker for a Git &amp; GitHub workshop at Menoufia University (2026)</li>
@@ -281,86 +293,87 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="py-20 bg-white dark:bg-gray-900">
+<section id="skills" class="py-20 bg-base">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Skills &amp; Expertise</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Toolkit</p>
+<h2 class="text-4xl font-bold font-display mb-4">Skills &amp; Expertise</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-code text-4xl text-blue-600 skill-icon"></i>
+<i class="fas fa-code text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">Programming Languages</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fab fa-python text-blue-500 mr-2"></i> Python</li>
-<li class="flex items-center"><i class="fas fa-code text-blue-500 mr-2"></i> C++</li>
-<li class="flex items-center"><i class="fas fa-database text-blue-500 mr-2"></i> SQL</li>
-<li class="flex items-center"><i class="fas fa-diagram-project text-blue-500 mr-2"></i> Prolog</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fab fa-python text-[var(--primary)] mr-2"></i> Python</li>
+<li class="flex items-center"><i class="fas fa-code text-[var(--primary)] mr-2"></i> C++</li>
+<li class="flex items-center"><i class="fas fa-database text-[var(--primary)] mr-2"></i> SQL</li>
+<li class="flex items-center"><i class="fas fa-diagram-project text-[var(--primary)] mr-2"></i> Prolog</li>
 </ul>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-chart-bar text-4xl text-green-600 skill-icon"></i>
+<i class="fas fa-chart-bar text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">Data Analysis</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fas fa-chart-line text-green-500 mr-2"></i> NumPy</li>
-<li class="flex items-center"><i class="fas fa-table text-green-500 mr-2"></i> Pandas</li>
-<li class="flex items-center"><i class="fas fa-chart-pie text-green-500 mr-2"></i> Matplotlib</li>
-<li class="flex items-center"><i class="fas fa-chart-area text-green-500 mr-2"></i> Seaborn</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fas fa-chart-line text-[var(--primary)] mr-2"></i> NumPy</li>
+<li class="flex items-center"><i class="fas fa-table text-[var(--primary)] mr-2"></i> Pandas</li>
+<li class="flex items-center"><i class="fas fa-chart-pie text-[var(--primary)] mr-2"></i> Matplotlib</li>
+<li class="flex items-center"><i class="fas fa-chart-area text-[var(--primary)] mr-2"></i> Seaborn</li>
 </ul>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-brain text-4xl text-purple-600 skill-icon"></i>
+<i class="fas fa-brain text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">Machine Learning</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fas fa-cogs text-purple-500 mr-2"></i> Scikit-learn</li>
-<li class="flex items-center"><i class="fas fa-robot text-purple-500 mr-2"></i> Model Training &amp; Evaluation</li>
-<li class="flex items-center"><i class="fas fa-wrench text-purple-500 mr-2"></i> Feature Engineering</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fas fa-cogs text-[var(--primary)] mr-2"></i> Scikit-learn</li>
+<li class="flex items-center"><i class="fas fa-robot text-[var(--primary)] mr-2"></i> Model Training &amp; Evaluation</li>
+<li class="flex items-center"><i class="fas fa-wrench text-[var(--primary)] mr-2"></i> Feature Engineering</li>
 </ul>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-network-wired text-4xl text-red-600 skill-icon"></i>
+<i class="fas fa-network-wired text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">Deep Learning</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fas fa-fire text-red-500 mr-2"></i> TensorFlow</li>
-<li class="flex items-center"><i class="fas fa-layer-group text-red-500 mr-2"></i> Keras</li>
-<li class="flex items-center"><i class="fas fa-bolt text-red-500 mr-2"></i> PyTorch</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fas fa-fire text-[var(--primary)] mr-2"></i> TensorFlow</li>
+<li class="flex items-center"><i class="fas fa-layer-group text-[var(--primary)] mr-2"></i> Keras</li>
+<li class="flex items-center"><i class="fas fa-bolt text-[var(--primary)] mr-2"></i> PyTorch</li>
 </ul>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-eye text-4xl text-indigo-600 skill-icon"></i>
+<i class="fas fa-eye text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">NLP &amp; Computer Vision</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fas fa-camera text-indigo-500 mr-2"></i> OpenCV &amp; YOLO</li>
-<li class="flex items-center"><i class="fas fa-language text-indigo-500 mr-2"></i> NLTK &amp; Hugging Face Transformers</li>
-<li class="flex items-center"><i class="fas fa-image text-indigo-500 mr-2"></i> Image &amp; Signal Processing</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fas fa-camera text-[var(--primary)] mr-2"></i> OpenCV &amp; YOLO</li>
+<li class="flex items-center"><i class="fas fa-language text-[var(--primary)] mr-2"></i> NLTK &amp; Hugging Face Transformers</li>
+<li class="flex items-center"><i class="fas fa-image text-[var(--primary)] mr-2"></i> Image &amp; Signal Processing</li>
 </ul>
 </div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
+<div class="card card-hover p-6 fade-in">
 <div class="text-center mb-4">
-<i class="fas fa-comments text-4xl text-yellow-600 skill-icon"></i>
+<i class="fas fa-comments text-4xl skill-icon"></i>
 <h3 class="text-xl font-bold mt-2">Tools &amp; Soft Skills</h3>
 </div>
-<ul class="space-y-2">
-<li class="flex items-center"><i class="fab fa-git-alt text-yellow-500 mr-2"></i> Git &amp; GitHub</li>
-<li class="flex items-center"><i class="fas fa-server text-yellow-500 mr-2"></i> Flask, FastAPI, Streamlit</li>
-<li class="flex items-center"><i class="fab fa-microsoft text-yellow-500 mr-2"></i> Microsoft Azure</li>
-<li class="flex items-center"><i class="fas fa-users text-yellow-500 mr-2"></i> Leadership &amp; Teamwork</li>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center"><i class="fab fa-git-alt text-[var(--primary)] mr-2"></i> Git &amp; GitHub</li>
+<li class="flex items-center"><i class="fas fa-server text-[var(--primary)] mr-2"></i> Flask, FastAPI, Streamlit</li>
+<li class="flex items-center"><i class="fab fa-microsoft text-[var(--primary)] mr-2"></i> Microsoft Azure</li>
+<li class="flex items-center"><i class="fas fa-users text-[var(--primary)] mr-2"></i> Leadership &amp; Teamwork</li>
 </ul>
 </div>
 
@@ -369,29 +382,30 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Experience Section -->
-<section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="experience" class="py-20 bg-alt dot-grid">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Work Experience</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Career Path</p>
+<h2 class="text-4xl font-bold font-display mb-4">Work Experience</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 <div class="max-w-4xl mx-auto">
-<div class="relative border-l-4 border-blue-600 pl-10 space-y-8">
+<div class="relative border-l-4 timeline-rail pl-10 space-y-8">
 
 <!-- DEPI AI Engineer -->
 <div class="timeline-item fade-in">
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="card card-hover p-6">
 <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-<h3 class="text-xl font-bold text-blue-600">AI Engineer &mdash; Microsoft Track</h3>
-<span class="text-sm text-gray-500 dark:text-gray-400">May 2025 &ndash; Nov 2025</span>
+<h3 class="text-xl font-bold text-[var(--primary)]">AI Engineer &mdash; Microsoft Track</h3>
+<span class="text-sm text-muted font-mono">May 2025 &ndash; Nov 2025</span>
 </div>
 <p class="text-lg font-semibold mb-1">Digital Egypt Pioneers Initiative (DEPI)</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Hybrid, Cairo, Egypt</p>
+<p class="text-sm text-muted mb-4"><i class="fas fa-location-dot mr-1"></i>Hybrid, Cairo, Egypt</p>
 
 <div class="grid sm:grid-cols-2 gap-4 mb-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Built 10+ AI projects spanning NLP, Computer Vision, and Predictive Modeling</li>
 <li>&bull; Managed data preparation, model development, evaluation, and deployment</li>
 </ul>
@@ -407,14 +421,14 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <div class="grid sm:grid-cols-2 gap-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Recognized as Top Team Leader of the DEPI Leadership Program</li>
 <li>&bull; Delivered 5+ end-to-end AI/ML projects with full evaluation pipelines</li>
 </ul>
 </div>
 <div>
 <h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Worked across datasets containing 10,000+ records on Azure</li>
 <li>&bull; Applied ML/DL techniques to real-world business problems</li>
 </ul>
@@ -425,18 +439,18 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 
 <!-- Agricultural Bank of Egypt -->
 <div class="timeline-item fade-in">
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="card card-hover p-6">
 <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-<h3 class="text-xl font-bold text-blue-600">Summer Intern</h3>
-<span class="text-sm text-gray-500 dark:text-gray-400">Jul 2025 &ndash; Aug 2025</span>
+<h3 class="text-xl font-bold text-[var(--primary)]">Summer Intern</h3>
+<span class="text-sm text-muted font-mono">Jul 2025 &ndash; Aug 2025</span>
 </div>
 <p class="text-lg font-semibold mb-1">Agricultural Bank of Egypt</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Damanhour, Egypt</p>
+<p class="text-sm text-muted mb-4"><i class="fas fa-location-dot mr-1"></i>Damanhour, Egypt</p>
 
 <div class="grid sm:grid-cols-2 gap-4 mb-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Analyzed structured financial data and banking operations</li>
 <li>&bull; Managed email communications and assisted in client services</li>
 </ul>
@@ -452,13 +466,13 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <div class="grid sm:grid-cols-2 gap-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Improved data-entry accuracy across banking workflows</li>
 </ul>
 </div>
 <div>
 <h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Processed 500+ high-value client checks weekly at 99.8% accuracy</li>
 <li>&bull; Expedited deposit timelines by two business days</li>
 </ul>
@@ -469,18 +483,18 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 
 <!-- IEEE Delta -->
 <div class="timeline-item fade-in">
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="card card-hover p-6">
 <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-<h3 class="text-xl font-bold text-blue-600">AI Intern</h3>
-<span class="text-sm text-gray-500 dark:text-gray-400">Oct 2024 &ndash; Jan 2025</span>
+<h3 class="text-xl font-bold text-[var(--primary)]">AI Intern</h3>
+<span class="text-sm text-muted font-mono">Oct 2024 &ndash; Jan 2025</span>
 </div>
 <p class="text-lg font-semibold mb-1">IEEE Delta</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
+<p class="text-sm text-muted mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
 
 <div class="grid sm:grid-cols-2 gap-4 mb-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Developed ML models for classification tasks</li>
 <li>&bull; Applied statistical analysis to financial datasets</li>
 </ul>
@@ -496,13 +510,13 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <div class="grid sm:grid-cols-2 gap-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Improved model performance through feature engineering</li>
 </ul>
 </div>
 <div>
 <h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Achieved up to 95% accuracy on real-world datasets</li>
 <li>&bull; Worked with financial datasets of 50,000+ records</li>
 </ul>
@@ -513,18 +527,18 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 
 <!-- Menofia University Instructor -->
 <div class="timeline-item fade-in">
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="card card-hover p-6">
 <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-<h3 class="text-xl font-bold text-blue-600">Programming Instructor (Peer Teaching)</h3>
-<span class="text-sm text-gray-500 dark:text-gray-400">2024 &ndash; Present</span>
+<h3 class="text-xl font-bold text-[var(--primary)]">Programming Instructor (Peer Teaching)</h3>
+<span class="text-sm text-muted font-mono">2024 &ndash; Present</span>
 </div>
 <p class="text-lg font-semibold mb-1">Menofia University</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
+<p class="text-sm text-muted mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
 
 <div class="grid sm:grid-cols-2 gap-4 mb-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Delivered peer-led programming and data science sessions</li>
 <li>&bull; Explained programming fundamentals, statistics, and intro ML concepts</li>
 </ul>
@@ -540,13 +554,13 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <div class="grid sm:grid-cols-2 gap-4">
 <div>
 <h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Mentored classmates through coding exercises and problem-solving</li>
 </ul>
 </div>
 <div>
 <h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
-<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<ul class="text-sm space-y-1 text-muted">
 <li>&bull; Ongoing peer-teaching role supporting multiple student cohorts</li>
 </ul>
 </div>
@@ -560,310 +574,304 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- GitHub Statistics Section -->
-<section class="py-20 bg-white dark:bg-gray-900">
+<section class="py-20 bg-base">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">GitHub Activity</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-<p class="text-gray-600 dark:text-gray-400 mt-4">Live stats pulled from <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">github.com/NsElgezawy</a></p>
+<p class="eyebrow mb-3">Live Dashboard</p>
+<h2 class="text-4xl font-bold font-display mb-4">GitHub Activity</h2>
+<div class="section-divider mx-auto"></div>
+<p class="text-muted mt-4">Live stats pulled from <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-[var(--primary)] hover:underline">github.com/NsElgezawy</a></p>
 </div>
 <div class="grid md:grid-cols-2 gap-6 mb-6">
 <div class="gh-stat-card fade-in">
-<img src="https://github-readme-stats.vercel.app/api?username=NsElgezawy&show_icons=true&count_private=true&hide_border=true&title_color=667eea&icon_color=764ba2&text_color=64748b&bg_color=00000000" alt="GitHub stats for NsElgezawy" loading="lazy">
+<img src="https://github-readme-stats.vercel.app/api?username=NsElgezawy&show_icons=true&count_private=true&hide_border=true&title_color=007D9C&icon_color=4F46E5&text_color=5B6770&bg_color=00000000" alt="GitHub stats for NsElgezawy" loading="lazy">
 </div>
 <div class="gh-stat-card fade-in">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NsElgezawy&layout=compact&hide_border=true&title_color=667eea&text_color=64748b&bg_color=00000000" alt="Most used languages for NsElgezawy" loading="lazy">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NsElgezawy&layout=compact&hide_border=true&title_color=007D9C&text_color=5B6770&bg_color=00000000" alt="Most used languages for NsElgezawy" loading="lazy">
 </div>
 </div>
 <div class="gh-stat-card fade-in">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=NsElgezawy&hide_border=true&background=00000000&ring=667eea&fire=764ba2&currStreakLabel=667eea" alt="GitHub streak stats for NsElgezawy" loading="lazy">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=NsElgezawy&hide_border=true&background=00000000&ring=007D9C&fire=4F46E5&currStreakLabel=007D9C" alt="GitHub streak stats for NsElgezawy" loading="lazy">
 </div>
 </div>
 </section>
 
 <!-- Projects Section -->
-<section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="projects" class="py-20 bg-alt dot-grid">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12 fade-in">
-<h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Selected Work</p>
+<h2 class="text-4xl font-bold font-display mb-4">Featured Projects</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 
 <!-- Search + Filter -->
 <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10 fade-in">
 <div class="relative w-full md:w-80">
-<i class="fas fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-<input id="project-search" type="text" placeholder="Search projects..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+<i class="fas fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-muted"></i>
+<input id="project-search" type="text" placeholder="Search projects..." class="w-full pl-10 pr-4 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
 </div>
 <div class="flex flex-wrap gap-2 justify-center">
-<button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="all">All</button>
-<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="nlp">NLP</button>
-<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="cv">Computer Vision</button>
-<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="rl">Reinforcement Learning</button>
-<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="ml">ML Pipelines</button>
+<button class="filter-btn active btn-ghost" data-filter="all">All</button>
+<button class="filter-btn btn-ghost" data-filter="nlp">NLP</button>
+<button class="filter-btn btn-ghost" data-filter="cv">Computer Vision</button>
+<button class="filter-btn btn-ghost" data-filter="rl">Reinforcement Learning</button>
+<button class="filter-btn btn-ghost" data-filter="ml">ML Pipelines</button>
 </div>
 </div>
 
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
 <!-- Land Type Classification -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv,ml">
-<div class="w-full h-40 bg-gradient-to-br from-green-400 to-teal-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-satellite text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="cv,ml">
+<div class="video-thumb" data-youtube-id="TJZ4OyyqDVA">
+<img src="assets/Thumbnails/Land%20Type%20Classification%20%28Sentinel-2%29%20thumbnail.png" alt="Land Type Classification Sentinel-2 demo thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
+<span class="play-button"><i class="fas fa-play ml-0.5"></i></span>
+<span class="video-badge"><i class="fab fa-youtube"></i> Watch Demo</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Land Type Classification (Sentinel-2)</h3>
-<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Classify terrain types from satellite imagery for environmental monitoring.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> EuroSAT Sentinel-2, 27,000+ image samples, 10 land-cover classes.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> CNN-based deep learning classifier with image preprocessing pipeline.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 92% accuracy &middot; 89% F1-score.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Land Type Classification (Sentinel-2)</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Classify terrain types from satellite imagery for environmental monitoring.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> EuroSAT Sentinel-2, 27,000+ image samples, 10 land-cover classes.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> CNN-based deep learning classifier with image preprocessing pipeline.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Metrics:</span> 92% accuracy &middot; 89% F1-score.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Python</span><span class="tag-pill">Remote Sensing</span><span class="tag-pill">Deep Learning</span><span class="tag-pill">Computer Vision</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy/Land-Type-Classification-Sentinel-2" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
-<a href="https://youtu.be/TJZ4OyyqDVA" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+<a href="https://github.com/NsElgezawy/Land-Type-Classification-Sentinel-2" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/TJZ4OyyqDVA" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-youtube mr-2"></i>Watch on YouTube</a>
+</div>
 </div>
 </div>
 
 <!-- AI Vision Pipeline -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv,nlp,ml">
-<div class="w-full h-40 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-wand-magic-sparkles text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="cv,nlp,ml">
+<div class="video-thumb" data-youtube-id="8WcWmKlBSo4">
+<img src="assets/Thumbnails/AI-Vision-Pipeline%20thumbnail.png" alt="AI Vision Pipeline demo thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
+<span class="play-button"><i class="fas fa-play ml-0.5"></i></span>
+<span class="video-badge"><i class="fab fa-youtube"></i> Watch Demo</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">AI-Vision-Pipeline</h3>
-<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Turn an image into a translated story through one automated pipeline.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Real-time user-uploaded images via web app.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> Azure Computer Vision + Hugging Face Transformers + Azure Translator, modular multi-stage workflow.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> Real-time, multilingual end-to-end generation.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">AI-Vision-Pipeline</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Turn an image into a translated story through one automated pipeline.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> Real-time user-uploaded images via web app.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> Azure Computer Vision + Hugging Face Transformers + Azure Translator, modular multi-stage workflow.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Metrics:</span> Real-time, multilingual end-to-end generation.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Python</span><span class="tag-pill">Computer Vision</span><span class="tag-pill">Gradio</span><span class="tag-pill">Azure</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy/AI-Vision-Pipeline" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
-<a href="https://youtu.be/8WcWmKlBSo4" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+<a href="https://github.com/NsElgezawy/AI-Vision-Pipeline" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/8WcWmKlBSo4" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-youtube mr-2"></i>Watch on YouTube</a>
+</div>
 </div>
 </div>
 
 <!-- Hand Gesture Control -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv">
-<div class="w-full h-40 bg-gradient-to-br from-orange-400 to-pink-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-hand text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="cv">
+<div class="video-thumb" data-youtube-id="BtfRSgybSLs">
+<img src="assets/Thumbnails/Hand%20Gesture%20System%20Control%20thumbnail.png" alt="Hand Gesture System Control demo thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
+<span class="play-button"><i class="fas fa-play ml-0.5"></i></span>
+<span class="video-badge"><i class="fab fa-youtube"></i> Watch Demo</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Hand Gesture System Control</h3>
-<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Enable touchless computer interaction through hand gestures.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Live webcam feed, 21-point hand landmark detection.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> MediaPipe landmark tracking + OpenCV gesture mapping.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 10 real-time gesture-based commands.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Hand Gesture System Control</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Enable touchless computer interaction through hand gestures.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> Live webcam feed, 21-point hand landmark detection.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> MediaPipe landmark tracking + OpenCV gesture mapping.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Metrics:</span> 10 real-time gesture-based commands.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Python</span><span class="tag-pill">OpenCV</span><span class="tag-pill">MediaPipe</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy/system_control_using_hand_gesture_detection" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
-<a href="https://youtu.be/BtfRSgybSLs" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+<a href="https://github.com/NsElgezawy/system_control_using_hand_gesture_detection" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/BtfRSgybSLs" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-youtube mr-2"></i>Watch on YouTube</a>
+</div>
 </div>
 </div>
 
 <!-- AI News Intelligence -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp,ml">
-<div class="w-full h-40 bg-gradient-to-br from-purple-400 to-violet-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-newspaper text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="nlp,ml">
+<div class="video-thumb" data-youtube-id="DdLCFc6UpP0">
+<img src="assets/Thumbnails/AI%20News%20Intelligence%20System%20thumbnail.jpg" alt="AI News Intelligence System demo thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
+<span class="play-button"><i class="fas fa-play ml-0.5"></i></span>
+<span class="video-badge"><i class="fab fa-youtube"></i> Watch Demo</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">AI News Intelligence System</h3>
-<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Classify, verify, and summarize news at scale, including fake-news detection.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> 200,000+ news articles across 15 categories.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> Ensemble of DistilBERT + RoBERTa with an LLM-based verification stage.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 84% F1-score on multi-class categorization.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">AI News Intelligence System</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Classify, verify, and summarize news at scale, including fake-news detection.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> 200,000+ news articles across 15 categories.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> Ensemble of DistilBERT + RoBERTa with an LLM-based verification stage.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Metrics:</span> 84% F1-score on multi-class categorization.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Python</span><span class="tag-pill">NLP</span><span class="tag-pill">Transformers</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy/AI-News-Intelligence-System-for-Classification-Fake-News-Detection-and-Summarization" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
-<a href="https://youtu.be/DdLCFc6UpP0" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+<a href="https://github.com/NsElgezawy/AI-News-Intelligence-System-for-Classification-Fake-News-Detection-and-Summarization" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/DdLCFc6UpP0" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-youtube mr-2"></i>Watch on YouTube</a>
+</div>
 </div>
 </div>
 
 <!-- GoalNet-RL -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="rl">
-<div class="w-full h-40 bg-gradient-to-br from-emerald-400 to-cyan-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-futbol text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="rl">
+<div class="video-thumb" data-youtube-id="zNyJIAc7bDc">
+<img src="assets/Thumbnails/GoalNet-RL%20Multi-Agent%20Football%20RL%20thumbnail.jpg" alt="GoalNet-RL Multi-Agent Football RL demo thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
+<span class="play-button"><i class="fas fa-play ml-0.5"></i></span>
+<span class="video-badge"><i class="fab fa-youtube"></i> Watch Demo</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">GoalNet-RL: Multi-Agent Football RL</h3>
-<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Train cooperative multi-agent football strategies with reinforcement learning.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Custom 20&times;20 grid-based simulated environment.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> DQN, Double DQN, and Dueling DQN across a 4-stage curriculum (24 checkpoints).</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> Up to 74% goal rate with emergent cooperative gameplay.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">GoalNet-RL: Multi-Agent Football RL</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Train cooperative multi-agent football strategies with reinforcement learning.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> Custom 20&times;20 grid-based simulated environment.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> DQN, Double DQN, and Dueling DQN across a 4-stage curriculum (24 checkpoints).</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Metrics:</span> Up to 74% goal rate with emergent cooperative gameplay.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Python</span><span class="tag-pill">PyTorch</span><span class="tag-pill">Deep Q-Networks</span><span class="tag-pill">Multi-Agent</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy/GoalNet-RL" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
-<a href="https://youtu.be/zNyJIAc7bDc" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+<a href="https://github.com/NsElgezawy/GoalNet-RL" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/zNyJIAc7bDc" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-youtube mr-2"></i>Watch on YouTube</a>
+</div>
 </div>
 </div>
 
-<!-- Criminal Interrogation Analysis (graduation project, in progress) -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp">
-<div class="w-full h-40 bg-gradient-to-br from-slate-500 to-gray-700 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-user-shield text-white text-4xl"></i>
+<!-- Explainable Credibility & Contradiction Detection (graduation project, in progress) -->
+<div class="project-card fade-in" data-category="nlp">
+<div class="thumb-only">
+<img src="assets/Thumbnails/Explainable%20Credibility%20%26%20Contradiction%20Detection%20thumbnail.png" alt="Explainable Credibility and Contradiction Detection thumbnail" loading="lazy">
+<span class="status-badge status-progress status-badge-float"><span class="status-dot"></span>In Progress</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Explainable Credibility &amp; Contradiction Detection</h3>
-<span class="status-badge status-progress"><span class="status-dot"></span>In Progress</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Detect linguistic inconsistencies and credibility signals in criminal interrogation statements.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Columbia-SRI-Colorado Corpus, LIAR Dataset, Deceptive Opinion Spam Corpus.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> NLP + Knowledge Graphs + Graph Neural Networks with Explainable AI (XAI) layers.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Status:</span> Graduation project &mdash; Stage 1 in progress (dataset collection &amp; analysis).</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Explainable Credibility &amp; Contradiction Detection</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Detect linguistic inconsistencies and credibility signals in criminal interrogation statements.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Dataset:</span> Columbia-SRI-Colorado Corpus, LIAR Dataset, Deceptive Opinion Spam Corpus.</p>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Architecture:</span> NLP + Knowledge Graphs + Graph Neural Networks with Explainable AI (XAI) layers.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Status:</span> Graduation project &mdash; Stage 1 in progress (dataset collection &amp; analysis).</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">NLP</span><span class="tag-pill">Knowledge Graphs</span><span class="tag-pill">GNN</span><span class="tag-pill">XAI</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<span class="inline-flex items-center text-gray-400"><i class="fas fa-lock mr-2"></i>Repository coming soon</span>
+<span class="inline-flex items-center text-muted"><i class="fas fa-lock mr-2"></i>Repository coming soon</span>
 </div>
-</div>
-
-<!-- Fake News Detection (planned, separate from News Intelligence ensemble work) -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp">
-<div class="w-full h-40 bg-gradient-to-br from-rose-400 to-red-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-circle-exclamation text-white text-4xl"></i>
-</div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Fake News Detection System</h3>
-<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Standalone transformer-based fake news classifier, extending the News Intelligence work.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Transformer-based binary and multi-class classification.</p>
-<div class="flex flex-wrap mb-4">
-<span class="tag-pill">NLP</span><span class="tag-pill">Transformers</span><span class="tag-pill">Classification</span>
-</div>
-<div class="flex flex-wrap gap-4 text-sm font-semibold">
-<span class="inline-flex items-center text-gray-400"><i class="fas fa-clock mr-2"></i>Coming soon</span>
 </div>
 </div>
 
 <!-- Deep Clustering -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="ml">
-<div class="w-full h-40 bg-gradient-to-br from-amber-400 to-orange-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-circle-nodes text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="ml">
+<div class="thumb-only">
+<img src="assets/Thumbnails/Deep%20Clustering%20%28DEC%20%20IDEC%29%20thumbnail.png" alt="Deep Clustering DEC IDEC thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Deep Clustering (DEC / IDEC)</h3>
-<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Explore unsupervised representation learning for clustering high-dimensional data.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Deep Embedded Clustering (DEC) and Improved DEC using autoencoders.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Deep Clustering (DEC / IDEC)</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Explore unsupervised representation learning for clustering high-dimensional data.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Approach:</span> Deep Embedded Clustering (DEC) and Improved DEC using autoencoders.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">Autoencoders</span><span class="tag-pill">Unsupervised Learning</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<span class="inline-flex items-center text-gray-400"><i class="fas fa-clock mr-2"></i>Coming soon</span>
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+</div>
 </div>
 </div>
 
 <!-- VizionaryML -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="ml">
-<div class="w-full h-40 bg-gradient-to-br from-red-400 to-rose-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-cogs text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="ml">
+<div class="thumb-only">
+<img src="assets/Thumbnails/VizionaryML%20thumbnail.png" alt="VizionaryML thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">VizionaryML</h3>
-<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> An end-to-end ML pipeline with automated training and evaluation.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Configurable pipeline covering preprocessing through model evaluation.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">VizionaryML</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> An end-to-end ML pipeline with automated training and evaluation.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Approach:</span> Configurable pipeline covering preprocessing through model evaluation.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">ML Pipeline</span><span class="tag-pill">Automation</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+</div>
 </div>
 </div>
 
 <!-- Digital Image Processing Suite -->
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv">
-<div class="w-full h-40 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-image text-white text-4xl"></i>
+<div class="project-card fade-in" data-category="cv">
+<div class="thumb-only">
+<img src="assets/Thumbnails/Digital%20Image%20Processing%20Suite%20thumbnail.png" alt="Digital Image Processing Suite thumbnail" loading="lazy">
+<span class="status-badge status-complete status-badge-float"><span class="status-dot"></span>Complete</span>
 </div>
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold">Digital Image Processing Suite</h3>
-<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Advanced image processing app with multiple filters and enhancement effects.</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Classical and deep-learning-based image enhancement techniques.</p>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Digital Image Processing Suite</h3>
+<p class="text-sm text-muted mb-3"><span class="font-semibold text-heading">Problem:</span> Advanced image processing app with multiple filters and enhancement effects.</p>
+<p class="text-sm text-muted mb-4"><span class="font-semibold text-heading">Approach:</span> Classical and deep-learning-based image enhancement techniques.</p>
 <div class="flex flex-wrap mb-4">
 <span class="tag-pill">OpenCV</span><span class="tag-pill">Image Enhancement</span>
 </div>
 <div class="flex flex-wrap gap-4 text-sm font-semibold">
-<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-[var(--primary)] hover:text-[var(--accent)]"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+</div>
 </div>
 </div>
 
 </div>
 
-<p id="no-results" class="text-center text-gray-500 dark:text-gray-400 mt-10 hidden">No projects match your search.</p>
+<p id="no-results" class="text-center text-muted mt-10 hidden">No projects match your search.</p>
 </div>
 </section>
 
 <!-- Achievements & Recruiter Highlights Section -->
-<section class="py-20 bg-white dark:bg-gray-900">
+<section class="py-20 bg-base">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Achievements</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Track Record</p>
+<h2 class="text-4xl font-bold font-display mb-4">Achievements</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 
 <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16">
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>Completed the DEPI Microsoft Machine Learning Engineer Track</span>
 </div>
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>AI Intern at IEEE Delta, achieving up to 95% model accuracy</span>
 </div>
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>Summer Internship at Agricultural Bank of Egypt</span>
 </div>
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>Built 15+ AI &amp; Data Science projects across NLP, CV, and RL</span>
 </div>
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>Recognized as Top Team Leader in the DEPI Leadership Program</span>
 </div>
-<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<div class="flex items-start card p-4 fade-in">
 <i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
 <span>Earned multiple AI &amp; Machine Learning certifications</span>
 </div>
 </div>
 
 <!-- Recruiter-Focused Quick Highlights -->
-<div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-8 fade-in">
-<h3 class="text-xl font-bold mb-4 text-center">Quick Highlights</h3>
+<div class="max-w-4xl mx-auto card p-8 fade-in" style="background: linear-gradient(135deg, rgba(var(--primary-rgb),0.06), rgba(var(--accent-rgb),0.06));">
+<h3 class="text-xl font-bold mb-4 text-center font-display">Quick Highlights</h3>
 <div class="grid sm:grid-cols-2 gap-3 text-sm">
-<div class="flex items-center"><i class="fas fa-diagram-project text-blue-600 mr-2"></i>15+ AI Projects Completed</div>
-<div class="flex items-center"><i class="fas fa-briefcase text-blue-600 mr-2"></i>3+ Professional Internships</div>
-<div class="flex items-center"><i class="fas fa-certificate text-blue-600 mr-2"></i>10+ Technical Certifications</div>
-<div class="flex items-center"><i class="fas fa-graduation-cap text-blue-600 mr-2"></i>AI Student at Menoufia University</div>
-<div class="flex items-center"><i class="fas fa-brain text-blue-600 mr-2"></i>Focused on ML, NLP, and Computer Vision</div>
-<div class="flex items-center"><i class="fas fa-handshake text-blue-600 mr-2"></i>Open to Internships and Junior AI Roles</div>
+<div class="flex items-center"><i class="fas fa-diagram-project text-[var(--primary)] mr-2"></i>15+ AI Projects Completed</div>
+<div class="flex items-center"><i class="fas fa-briefcase text-[var(--primary)] mr-2"></i>3+ Professional Internships</div>
+<div class="flex items-center"><i class="fas fa-certificate text-[var(--primary)] mr-2"></i>10+ Technical Certifications</div>
+<div class="flex items-center"><i class="fas fa-graduation-cap text-[var(--primary)] mr-2"></i>AI Student at Menoufia University</div>
+<div class="flex items-center"><i class="fas fa-brain text-[var(--primary)] mr-2"></i>Focused on ML, NLP, and Computer Vision</div>
+<div class="flex items-center"><i class="fas fa-handshake text-[var(--primary)] mr-2"></i>Open to Internships and Junior AI Roles</div>
 </div>
 </div>
 
@@ -871,83 +879,85 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Certifications Section -->
-<section id="certifications" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="certifications" class="py-20 bg-alt dot-grid">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Certifications</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Credentials</p>
+<h2 class="text-4xl font-bold font-display mb-4">Certifications</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
 
-<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
-<i class="fas fa-certificate text-3xl text-blue-600 mr-4 mt-1"></i>
+<div class="card card-hover p-6 fade-in flex items-start">
+<i class="fas fa-certificate text-3xl text-[var(--primary)] mr-4 mt-1"></i>
 <div>
 <h3 class="font-bold mb-1">DEPI AI &amp; Machine Learning Engineer Program</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Digital Egypt Pioneers Initiative (Microsoft Track)</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Nov 2025</p>
+<p class="text-sm text-muted">Issuer: Digital Egypt Pioneers Initiative (Microsoft Track)</p>
+<p class="text-sm text-muted">Issued: Nov 2025</p>
 </div>
 </div>
 
-<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
-<i class="fas fa-award text-3xl text-green-600 mr-4 mt-1"></i>
+<div class="card card-hover p-6 fade-in flex items-start">
+<i class="fas fa-award text-3xl text-[var(--primary)] mr-4 mt-1"></i>
 <div>
 <h3 class="font-bold mb-1">DEPI Leadership Certificate</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Digital Egypt Pioneers Initiative</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025 &mdash; Top Team Leader Recognition</p>
+<p class="text-sm text-muted">Issuer: Digital Egypt Pioneers Initiative</p>
+<p class="text-sm text-muted">Issued: 2025 &mdash; Top Team Leader Recognition</p>
 </div>
 </div>
 
-<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
-<i class="fas fa-medal text-3xl text-purple-600 mr-4 mt-1"></i>
+<div class="card card-hover p-6 fade-in flex items-start">
+<i class="fas fa-medal text-3xl text-[var(--primary)] mr-4 mt-1"></i>
 <div>
 <h3 class="font-bold mb-1">Summer Internship Certificate</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Agricultural Bank of Egypt</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Aug 2025</p>
+<p class="text-sm text-muted">Issuer: Agricultural Bank of Egypt</p>
+<p class="text-sm text-muted">Issued: Aug 2025</p>
 </div>
 </div>
 
-<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
-<i class="fas fa-microchip text-3xl text-red-600 mr-4 mt-1"></i>
+<div class="card card-hover p-6 fade-in flex items-start">
+<i class="fas fa-microchip text-3xl text-[var(--primary)] mr-4 mt-1"></i>
 <div>
 <h3 class="font-bold mb-1">AI Internship Certificate</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: IEEE Delta</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Jan 2025</p>
+<p class="text-sm text-muted">Issuer: IEEE Delta</p>
+<p class="text-sm text-muted">Issued: Jan 2025</p>
 </div>
 </div>
 
 </div>
-<p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8 fade-in">Additional course-based certifications in Python, statistics, and data analytics complete the credential set.</p>
+<p class="text-center text-sm text-muted mt-8 fade-in">Additional course-based certifications in Python, statistics, and data analytics complete the credential set.</p>
 </div>
 </section>
 
 <!-- Open Source & Community Section -->
-<section class="py-20 bg-white dark:bg-gray-900">
+<section class="py-20 bg-base">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Open Source &amp; Community</h2>
-<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="eyebrow mb-3">Beyond the Code</p>
+<h2 class="text-4xl font-bold font-display mb-4">Open Source &amp; Community</h2>
+<div class="section-divider mx-auto"></div>
 </div>
 
 <div class="gh-stat-card mb-10 fade-in">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=NsElgezawy&theme=minimal&hide_border=true&bg_color=00000000&color=667eea&line=764ba2&point=667eea" alt="GitHub contribution activity graph for NsElgezawy" loading="lazy">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=NsElgezawy&theme=minimal&hide_border=true&bg_color=00000000&color=007D9C&line=4F46E5&point=007D9C" alt="GitHub contribution activity graph for NsElgezawy" loading="lazy">
 </div>
 
 <div class="grid md:grid-cols-2 gap-8">
-<div class="fade-in">
+<div class="fade-in card p-6">
 <h3 class="text-xl font-bold mb-4">Open Source Projects</h3>
-<ul class="space-y-3 text-sm">
-<li class="flex items-start"><i class="fas fa-code-branch text-blue-600 mr-3 mt-1"></i>Maintains and publishes all major projects publicly on <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">GitHub</a></li>
-<li class="flex items-start"><i class="fas fa-code-pull-request text-blue-600 mr-3 mt-1"></i>Active contributor to peer and university project repositories</li>
-<li class="flex items-start"><i class="fas fa-star text-blue-600 mr-3 mt-1"></i>Repositories span NLP, Computer Vision, and Reinforcement Learning</li>
+<ul class="space-y-3 text-sm text-muted">
+<li class="flex items-start"><i class="fas fa-code-branch text-[var(--primary)] mr-3 mt-1"></i>Maintains and publishes all major projects publicly on <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-[var(--primary)] hover:underline">GitHub</a></li>
+<li class="flex items-start"><i class="fas fa-code-pull-request text-[var(--primary)] mr-3 mt-1"></i>Active contributor to peer and university project repositories</li>
+<li class="flex items-start"><i class="fas fa-star text-[var(--primary)] mr-3 mt-1"></i>Repositories span NLP, Computer Vision, and Reinforcement Learning</li>
 </ul>
 </div>
-<div class="fade-in">
+<div class="fade-in card p-6">
 <h3 class="text-xl font-bold mb-4">Community Involvement</h3>
-<ul class="space-y-3 text-sm">
-<li class="flex items-start"><i class="fas fa-users text-purple-600 mr-3 mt-1"></i>Vice Head, EduGate Student Activity &mdash; led a 20+ member team (2023&ndash;2025)</li>
-<li class="flex items-start"><i class="fas fa-chalkboard-user text-purple-600 mr-3 mt-1"></i>Programming Instructor (Peer Teaching), Menofia University</li>
-<li class="flex items-start"><i class="fas fa-microphone text-purple-600 mr-3 mt-1"></i>Guest Speaker, Git &amp; GitHub Workshop, NEX Student Activity (2026)</li>
-<li class="flex items-start"><i class="fas fa-people-group text-purple-600 mr-3 mt-1"></i>Team Leader, DEPI Leadership Program</li>
+<ul class="space-y-3 text-sm text-muted">
+<li class="flex items-start"><i class="fas fa-users text-[var(--accent)] mr-3 mt-1"></i>Vice Head, EduGate Student Activity &mdash; led a 20+ member team (2023&ndash;2025)</li>
+<li class="flex items-start"><i class="fas fa-chalkboard-user text-[var(--accent)] mr-3 mt-1"></i>Programming Instructor (Peer Teaching), Menofia University</li>
+<li class="flex items-start"><i class="fas fa-microphone text-[var(--accent)] mr-3 mt-1"></i>Guest Speaker, Git &amp; GitHub Workshop, NEX Student Activity (2026)</li>
+<li class="flex items-start"><i class="fas fa-people-group text-[var(--accent)] mr-3 mt-1"></i>Team Leader, DEPI Leadership Program</li>
 </ul>
 </div>
 </div>
@@ -955,19 +965,20 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="relative py-20 gradient-bg tech-pattern overflow-hidden">
-<div class="absolute inset-0 bg-black/20"></div>
+<section id="contact" class="relative py-20 gradient-bg grid-overlay overflow-hidden">
+<div class="glow-orb w-80 h-80 bg-[var(--accent)] -top-10 -left-10"></div>
+<div class="glow-orb w-96 h-96 bg-[var(--primary)] -bottom-10 -right-10" style="animation-delay:3s;"></div>
 <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
 
 <!-- CTA Banner -->
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Work Together</h2>
-<p class="text-xl mb-8">Ready to bring your AI and data science projects to life?</p>
+<h2 class="text-4xl md:text-5xl font-bold font-display mb-4">Let's Work Together</h2>
+<p class="text-xl mb-8 text-blue-100">Ready to bring your AI and data science projects to life?</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a href="mailto:nselgezawy@gmail.com" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+<a href="mailto:nselgezawy@gmail.com" class="btn-primary">
 <i class="fas fa-envelope mr-2"></i> Email Me
 </a>
-<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="btn-outline">
 <i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
 </a>
 </div>
@@ -975,42 +986,42 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 
 <!-- Contact Links -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in">
-<a href="mailto:nselgezawy@gmail.com" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="mailto:nselgezawy@gmail.com" class="flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fas fa-envelope text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">Email</p>
 <p class="font-semibold text-sm break-all">nselgezawy@gmail.com</p>
 </div>
 </a>
-<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-linkedin text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">LinkedIn</p>
 <p class="font-semibold text-sm">linkedin.com/in/NsElgezawy</p>
 </div>
 </a>
-<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-github text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">GitHub</p>
 <p class="font-semibold text-sm">github.com/NsElgezawy</p>
 </div>
 </a>
-<a href="https://kaggle.com/nselgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="https://kaggle.com/nselgezawy" target="_blank" rel="noopener" class="flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-kaggle text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">Kaggle</p>
 <p class="font-semibold text-sm">kaggle.com/nselgezawy</p>
 </div>
 </a>
-<a href="https://wa.me/201068752980" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="https://wa.me/201068752980" target="_blank" rel="noopener" class="flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-whatsapp text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">WhatsApp</p>
 <p class="font-semibold text-sm">+20 106 875 2980</p>
 </div>
 </a>
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link flex items-center glass-dark p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fas fa-file-arrow-down text-2xl mr-4"></i>
 <div>
 <p class="text-sm text-blue-100">Resume</p>
@@ -1023,16 +1034,24 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-10">
+<footer class="py-10" style="background: var(--surface-2);">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<p>&copy; 2026 Anas Mohamed El-Gezawy. All rights reserved.</p>
-<p class="mt-2 text-gray-400">Built with focus on AI, NLP, and Computer Vision</p>
-<p class="mt-4 text-xs text-gray-500">Visitors: <span id="visitor-counter">&mdash;</span></p>
+<p class="text-heading">&copy; 2026 Anas Mohamed El-Gezawy. All rights reserved.</p>
+<p class="mt-2 text-muted">Built with focus on AI, NLP, and Computer Vision</p>
+<p class="mt-4 text-xs text-muted">Visitors: <span id="visitor-counter">&mdash;</span></p>
 </div>
 </footer>
 
+<!-- Video Modal -->
+<div id="video-modal">
+<div class="video-modal-inner">
+<div class="video-modal-close" id="video-modal-close" aria-label="Close video"><i class="fas fa-xmark"></i></div>
+<div class="video-modal-frame" id="video-modal-frame"></div>
+</div>
+</div>
+
 <!-- Back to Top -->
-<button id="back-to-top" class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg flex items-center justify-center" aria-label="Back to top">
+<button id="back-to-top" class="w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center" aria-label="Back to top">
 <i class="fas fa-arrow-up"></i>
 </button>
 
