@@ -1,134 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Portfolio of Anas Mohamed El-Gezawy | AI & Data Science Enthusiast">
-    <meta property="og:title" content="Anas Mohamed El-Gezawy - Portfolio">
-<meta property="og:description" content="AI & Data Science Projects, Skills, and Contact Info">
-<meta property="og:image" content="https://nselgezawy.github.io/portfolio/assets/profile.jpg">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anas Mohamed El-Gezawy - AI & Data Science Portfolio</title>
+<title>Anas Mohamed El-Gezawy | NLP & Computer Vision Engineer</title>
+<meta name="description" content="Portfolio of Anas Mohamed El-Gezawy, an AI engineer specializing in NLP, Computer Vision, and Explainable AI. Explore projects, experience, and certifications.">
+<meta name="keywords" content="Anas El-Gezawy, AI Engineer, Machine Learning, NLP, Computer Vision, Deep Learning, Data Science, Menoufia University, Egypt">
+<meta name="author" content="Anas Mohamed El-Gezawy">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nselgezawy.github.io/NS_Portfolio/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anas Mohamed El-Gezawy - AI & Data Science Portfolio">
+<meta property="og:description" content="NLP & Computer Vision Engineer building explainable, real-world AI systems. Browse projects, experience, and certifications.">
+<meta property="og:image" content="https://nselgezawy.github.io/NS_Portfolio/assets/profile.png">
+<meta property="og:url" content="https://nselgezawy.github.io/NS_Portfolio/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anas Mohamed El-Gezawy - AI & Data Science Portfolio">
+<meta name="twitter:description" content="NLP & Computer Vision Engineer building explainable, real-world AI systems.">
+<meta name="twitter:image" content="https://nselgezawy.github.io/NS_Portfolio/assets/profile.png">
+
+<link rel="icon" href="assets/profile.png" type="image/png">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-* {
-font-family: 'Inter', sans-serif;
-}
-
-.gradient-bg {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.dark .gradient-bg {
-background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-}
-
-.tech-pattern {
-background-image: 
-radial-gradient(circle at 25px 25px, rgba(255,255,255,0.1) 2px, transparent 0),
-radial-gradient(circle at 75px 75px, rgba(255,255,255,0.1) 2px, transparent 0);
-background-size: 100px 100px;
-}
-
-.card-hover {
-transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-transform: translateY(-5px);
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.dark .card-hover:hover {
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-}
-
-.skill-icon {
-transition: all 0.3s ease;
-}
-
-.skill-icon:hover {
-transform: scale(1.1);
-color: #667eea;
-}
-
-.timeline-item {
-position: relative;
-}
-
-.timeline-item::before {
-content: '';
-position: absolute;
-left: -8px;
-top: 0;
-width: 16px;
-height: 16px;
-background: #667eea;
-border-radius: 50%;
-border: 3px solid white;
-}
-
-.dark .timeline-item::before {
-border-color: #1f2937;
-}
-
-.fade-in {
-opacity: 0;
-transform: translateY(30px);
-transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-.typing-animation {
-border-right: 2px solid #667eea;
-animation: blink 1s infinite;
-}
-
-@keyframes blink {
-0%, 50% { border-color: transparent; }
-51%, 100% { border-color: #667eea; }
-}
-
-.project-card {
-background: linear-gradient(145deg, #f8fafc, #e2e8f0);
-transition: all 0.3s ease;
-}
-
-.dark .project-card {
-background: linear-gradient(145deg, #374151, #1f2937);
-}
-
-.project-card:hover {
-transform: translateY(-8px) scale(1.02);
-}
+* { font-family: 'Inter', sans-serif; }
 </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+<!-- Loading Screen -->
+<div id="loader">
+<div class="loader-ring"></div>
+<span class="loader-text">Loading Portfolio</span>
+</div>
+
 <!-- Navigation -->
 <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-4">
-<div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                    A.M
-</div>
-<div class="hidden md:flex space-x-8">
+<a href="#home" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">A.M</a>
+<div class="hidden md:flex items-center space-x-7">
 <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
 <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+<a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+<a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
 <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
 <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+<a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
 </div>
-<button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+<div class="flex items-center space-x-2">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link hidden sm:inline-flex items-center text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+<i class="fas fa-download mr-2"></i> Resume
+</a>
+<button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" aria-label="Toggle theme">
 <i class="fas fa-moon dark:hidden"></i>
 <i class="fas fa-sun hidden dark:block"></i>
 </button>
+<button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700" aria-label="Toggle menu">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden">
+<div class="flex flex-col space-y-3 pb-4">
+<a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+<a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+<a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+<a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+<a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
+<a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+<a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
+<a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link sm:hidden inline-flex items-center justify-center text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg">
+<i class="fas fa-download mr-2"></i> Download Resume
+</a>
+</div>
 </div>
 </div>
 </nav>
@@ -136,24 +92,52 @@ transform: translateY(-8px) scale(1.02);
 <!-- Hero Section -->
 <section id="home" class="min-h-screen gradient-bg tech-pattern flex items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-black/20"></div>
-<div class="relative z-10 text-center text-white px-4">
+<div class="relative z-10 text-center text-white px-4 pt-24 pb-16 max-w-5xl mx-auto">
 <div class="fade-in">
-<h1 class="text-5xl md:text-7xl font-bold mb-4">
+<p class="uppercase tracking-[0.3em] text-sm text-blue-200 mb-4">Alexandria, Egypt</p>
+<h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
 Anas Mohamed El-Gezawy
 </h1>
-<h2 class="text-2xl md:text-3xl font-light mb-6 typing-animation">
-AI & Data Science | ML Developer
+<h2 class="text-xl md:text-2xl font-light mb-2 text-blue-100">
+Building Explainable AI Systems for Real-World Impact
 </h2>
-<p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
-AI enthusiast and data science student passionate about applying machine learning models to solve real-world problems and build impactful applications.
+<div class="text-xl md:text-2xl font-semibold mb-6 h-8 flex items-center justify-center">
+<span id="typing-text"></span><span class="typing-cursor">&nbsp;</span>
+</div>
+<p class="text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed text-blue-50">
+AI engineer and final-year Artificial Intelligence student specializing in Natural Language Processing and
+Computer Vision, with hands-on experience turning research into deployed, real-world applications.
 </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<div class="flex flex-col sm:flex-row gap-4 justify-center mb-14">
 <a href="#projects" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
-View Projects
+<i class="fas fa-diagram-project mr-2"></i> View Projects
 </a>
-<a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
-Contact Me
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<i class="fas fa-download mr-2"></i> Download Resume
 </a>
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<i class="fab fa-github mr-2"></i> View GitHub Profile
+</a>
+</div>
+
+<!-- Quick Stats -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+<div>
+<div class="stat-number text-3xl md:text-4xl font-bold" data-count="15" data-suffix="+">0</div>
+<p class="text-sm text-blue-100 mt-1">AI Projects</p>
+</div>
+<div>
+<div class="stat-number text-3xl md:text-4xl font-bold" data-count="3" data-suffix="+">0</div>
+<p class="text-sm text-blue-100 mt-1">Internships</p>
+</div>
+<div>
+<div class="stat-number text-3xl md:text-4xl font-bold" data-count="10" data-suffix="+">0</div>
+<p class="text-sm text-blue-100 mt-1">Certifications</p>
+</div>
+<div>
+<div class="stat-number text-3xl md:text-4xl font-bold" data-count="2" data-suffix="+">0</div>
+<p class="text-sm text-blue-100 mt-1">Years Learning AI</p>
+</div>
 </div>
 </div>
 </div>
@@ -172,114 +156,149 @@ Contact Me
 <div class="grid md:grid-cols-2 gap-12 items-center">
 <!-- Profile Image -->
 <div class="fade-in">
-<div class="w-80 h-80 mx-auto">
-                    <img src="assets/profile.jpg" alt="Anas Mohamed El-Gezawy"
-class="rounded-full object-cover w-80 h-80 shadow-lg">
+<div class="w-72 h-72 md:w-80 md:h-80 mx-auto">
+<img src="assets/profile.png" alt="Anas Mohamed El-Gezawy"
+class="rounded-full object-cover w-full h-full shadow-lg">
 </div>
 </div>
 <!-- About Text -->
 <div class="fade-in">
-<p class="text-lg leading-relaxed mb-6">
-AI & Data Science enthusiast with hands-on experience in machine learning, data analysis, and application development. 
-Skilled at transforming complex datasets into actionable insights and building practical solutions — 
-from interactive desktop applications to end-to-end ML pipelines.
+<p class="text-lg leading-relaxed mb-5">
+My path into AI started with curiosity about how machines could understand language and images the way
+people do. That curiosity turned into a structured pursuit: a Bachelor's degree in Artificial Intelligence,
+an AI Engineer track with Microsoft through the Digital Egypt Pioneers Initiative, internships spanning
+banking and research, and a growing portfolio of projects across NLP, Computer Vision, and Reinforcement
+Learning.
 </p>
-<p class="text-lg leading-relaxed">
-Passionate about open-source, continuous learning, and delivering scalable, impactful results that make a real difference.
+<p class="text-lg leading-relaxed mb-5">
+Today, I am focused on building AI systems that are not just accurate, but explainable and trustworthy —
+work that comes through clearly in my graduation research on credibility assessment and contradiction
+detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph Neural Networks.
 </p>
+<div class="mb-6">
+<h3 class="font-semibold mb-2 text-blue-600 dark:text-blue-400">Current Focus Areas</h3>
+<div class="flex flex-wrap gap-2">
+<span class="tag-pill">Machine Learning</span>
+<span class="tag-pill">Deep Learning</span>
+<span class="tag-pill">Natural Language Processing</span>
+<span class="tag-pill">Computer Vision</span>
+<span class="tag-pill">Data Analytics</span>
+<span class="tag-pill">Explainable AI</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<i class="fas fa-location-dot text-blue-600 mb-1"></i>
+<p class="text-sm font-semibold">Location</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Alexandria, Egypt</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<i class="fas fa-graduation-cap text-blue-600 mb-1"></i>
+<p class="text-sm font-semibold">University</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Menoufia University</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<i class="fas fa-calendar text-blue-600 mb-1"></i>
+<p class="text-sm font-semibold">Graduation</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Expected Jul 2027</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 
 <!-- Education Section -->
-<section class="py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16 fade-in">
-      <h2 class="text-4xl font-bold mb-4">Education</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-    </div>
-    <div class="max-w-4xl mx-auto space-y-8">
+<section id="education" class="py-20 bg-gray-50 dark:bg-gray-800">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<h2 class="text-4xl font-bold mb-4">Education</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg card-hover fade-in">
+<div class="flex flex-col sm:flex-row sm:items-center mb-6">
+<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-0 sm:mr-6 mb-4 sm:mb-0">
+<i class="fas fa-graduation-cap text-white text-2xl"></i>
+</div>
+<div>
+<h3 class="text-2xl font-bold">Bachelor of Artificial Intelligence</h3>
+<p class="text-blue-600 dark:text-blue-400 font-semibold">Menoufia University &mdash; Data Science Specialization</p>
+<p class="text-gray-600 dark:text-gray-400">Expected Graduation: July 2027</p>
+</div>
+</div>
 
-      <!-- Bachelor -->
-      <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg card-hover fade-in">
-        <div class="flex items-center mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-6">
-            <i class="fas fa-graduation-cap text-white text-2xl"></i>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold">Bachelor of Artificial Intelligence</h3>
-            <p class="text-blue-600 dark:text-blue-400 font-semibold">Menoufia University</p>
-            <p class="text-gray-600 dark:text-gray-400">Department of Data Science • Oct 2023 – Jul 2027</p>
-          </div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h4 class="font-semibold mb-2">Core Coursework</h4>
-            <ul class="text-sm space-y-1">
-              <li>• Machine Learning Algorithms</li>
-              <li>• Data Structures & Algorithms</li>
-              <li>• Statistical Analysis</li>
-              <li>• Database Systems</li>
-            </ul>
-          </div>
-          <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h4 class="font-semibold mb-2">Specialized Areas</h4>
-            <ul class="text-sm space-y-1">
-              <li>• Deep Learning & Neural Networks</li>
-              <li>• Computer Vision</li>
-              <li>• Natural Language Processing</li>
-              <li>• Data Mining & Analytics</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<div class="grid sm:grid-cols-3 gap-4 mb-6">
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">GPA</p>
+<p class="text-2xl font-bold text-blue-600 dark:text-blue-400">3.41</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">Specialization</p>
+<p class="text-lg font-semibold">Data Science</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">Expected Graduation</p>
+<p class="text-lg font-semibold">Jul 2027</p>
+</div>
+</div>
 
-      <!-- DEPI Microsoft ML Track -->
-      <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg card-hover fade-in">
-        <div class="flex items-center mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-700 rounded-full flex items-center justify-center mr-6">
-            <i class="fas fa-robot text-white text-2xl"></i>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold">DEPI – Microsoft Machine Learning Track</h3>
-            <p class="text-blue-600 dark:text-blue-400 font-semibold">Digital Egypt Pioneers Initiative</p>
-            <p class="text-gray-600 dark:text-gray-400">Specialized Program • 2024</p>
-          </div>
-        </div>
-        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <h4 class="font-semibold mb-2">Highlights</h4>
-          <ul class="text-sm space-y-1">
-            <li>• Specialized training in Machine Learning using Microsoft technologies.</li>
-            <li>• Built and deployed ML models with Azure & Python.</li>
-            <li>• Hands-on projects applying ML to real-world problems.</li>
-            <li>• Developed teamwork, critical thinking, and problem-solving skills.</li>
-          </ul>
-        </div>
-      </div>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<h4 class="font-semibold mb-2">Core Coursework</h4>
+<ul class="text-sm space-y-1">
+<li>&bull; Machine Learning Algorithms</li>
+<li>&bull; Data Structures &amp; Algorithms</li>
+<li>&bull; Statistical Analysis</li>
+<li>&bull; Database Systems</li>
+<li>&bull; Probability &amp; Linear Algebra</li>
+</ul>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<h4 class="font-semibold mb-2">Specialized Areas</h4>
+<ul class="text-sm space-y-1">
+<li>&bull; Deep Learning &amp; Neural Networks</li>
+<li>&bull; Computer Vision</li>
+<li>&bull; Natural Language Processing</li>
+<li>&bull; Knowledge Graphs &amp; Graph Neural Networks</li>
+<li>&bull; Data Mining &amp; Analytics</li>
+</ul>
+</div>
+</div>
 
-    </div>
-  </div>
+<div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+<h4 class="font-semibold mb-2">Academic Achievements</h4>
+<ul class="text-sm space-y-1">
+<li>&bull; Vice Head of EduGate Student Activity (2023&ndash;2025), leading a 20+ member academic support team</li>
+<li>&bull; Recognized as Top Team Leader in the DEPI Leadership Program (2025)</li>
+<li>&bull; Guest Speaker for a Git &amp; GitHub workshop at Menoufia University (2026)</li>
+<li>&bull; Currently leading a graduation research project on Explainable AI for Criminal Interrogation Analysis</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 
 <!-- Skills Section -->
 <section id="skills" class="py-20 bg-white dark:bg-gray-900">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Skills & Expertise</h2>
+<h2 class="text-4xl font-bold mb-4">Skills &amp; Expertise</h2>
 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
 <div class="text-center mb-4">
 <i class="fas fa-code text-4xl text-blue-600 skill-icon"></i>
-<h3 class="text-xl font-bold mt-2">Programming</h3>
+<h3 class="text-xl font-bold mt-2">Programming Languages</h3>
 </div>
 <ul class="space-y-2">
 <li class="flex items-center"><i class="fab fa-python text-blue-500 mr-2"></i> Python</li>
 <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-2"></i> C++</li>
 <li class="flex items-center"><i class="fas fa-database text-blue-500 mr-2"></i> SQL</li>
+<li class="flex items-center"><i class="fas fa-diagram-project text-blue-500 mr-2"></i> Prolog</li>
 </ul>
 </div>
 
@@ -303,7 +322,7 @@ Passionate about open-source, continuous learning, and delivering scalable, impa
 </div>
 <ul class="space-y-2">
 <li class="flex items-center"><i class="fas fa-cogs text-purple-500 mr-2"></i> Scikit-learn</li>
-<li class="flex items-center"><i class="fas fa-robot text-purple-500 mr-2"></i> Model Training</li>
+<li class="flex items-center"><i class="fas fa-robot text-purple-500 mr-2"></i> Model Training &amp; Evaluation</li>
 <li class="flex items-center"><i class="fas fa-wrench text-purple-500 mr-2"></i> Feature Engineering</li>
 </ul>
 </div>
@@ -323,100 +342,241 @@ Passionate about open-source, continuous learning, and delivering scalable, impa
 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
 <div class="text-center mb-4">
 <i class="fas fa-eye text-4xl text-indigo-600 skill-icon"></i>
-<h3 class="text-xl font-bold mt-2">Computer Vision</h3>
+<h3 class="text-xl font-bold mt-2">NLP &amp; Computer Vision</h3>
 </div>
 <ul class="space-y-2">
-<li class="flex items-center"><i class="fas fa-camera text-indigo-500 mr-2"></i> OpenCV</li>
-<li class="flex items-center"><i class="fas fa-image text-indigo-500 mr-2"></i> Image Processing</li>
+<li class="flex items-center"><i class="fas fa-camera text-indigo-500 mr-2"></i> OpenCV &amp; YOLO</li>
+<li class="flex items-center"><i class="fas fa-language text-indigo-500 mr-2"></i> NLTK &amp; Hugging Face Transformers</li>
+<li class="flex items-center"><i class="fas fa-image text-indigo-500 mr-2"></i> Image &amp; Signal Processing</li>
 </ul>
 </div>
 
 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl card-hover fade-in">
 <div class="text-center mb-4">
 <i class="fas fa-comments text-4xl text-yellow-600 skill-icon"></i>
-<h3 class="text-xl font-bold mt-2">Tools & Soft Skills</h3>
+<h3 class="text-xl font-bold mt-2">Tools &amp; Soft Skills</h3>
 </div>
 <ul class="space-y-2">
-<li class="flex items-center"><i class="fab fa-git-alt text-yellow-500 mr-2"></i> Git</li>
-<li class="flex items-center"><i class="fas fa-users text-yellow-500 mr-2"></i> Teamwork</li>
-<li class="flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Problem-Solving</li>
+<li class="flex items-center"><i class="fab fa-git-alt text-yellow-500 mr-2"></i> Git &amp; GitHub</li>
+<li class="flex items-center"><i class="fas fa-server text-yellow-500 mr-2"></i> Flask, FastAPI, Streamlit</li>
+<li class="flex items-center"><i class="fab fa-microsoft text-yellow-500 mr-2"></i> Microsoft Azure</li>
+<li class="flex items-center"><i class="fas fa-users text-yellow-500 mr-2"></i> Leadership &amp; Teamwork</li>
 </ul>
 </div>
+
 </div>
 </div>
 </section>
 
-<!-- Work Experience Section -->
-<section class="py-20 bg-gray-50 dark:bg-gray-800">
+<!-- Experience Section -->
+<section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
 <h2 class="text-4xl font-bold mb-4">Work Experience</h2>
 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
 </div>
 <div class="max-w-4xl mx-auto">
-<div class="relative border-l-4 border-blue-600 pl-8 space-y-8">
+<div class="relative border-l-4 border-blue-600 pl-10 space-y-8">
+
+<!-- DEPI AI Engineer -->
 <div class="timeline-item fade-in">
 <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+<h3 class="text-xl font-bold text-blue-600">AI Engineer &mdash; Microsoft Track</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">May 2025 &ndash; Nov 2025</span>
+</div>
+<p class="text-lg font-semibold mb-1">Digital Egypt Pioneers Initiative (DEPI)</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Hybrid, Cairo, Egypt</p>
+
+<div class="grid sm:grid-cols-2 gap-4 mb-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Built 10+ AI projects spanning NLP, Computer Vision, and Predictive Modeling</li>
+<li>&bull; Managed data preparation, model development, evaluation, and deployment</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Technologies Used</h4>
+<div class="flex flex-wrap gap-1">
+<span class="tag-pill">Python</span><span class="tag-pill">Microsoft Azure</span><span class="tag-pill">Scikit-learn</span><span class="tag-pill">Deep Learning</span>
+</div>
+</div>
+</div>
+
+<div class="grid sm:grid-cols-2 gap-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Recognized as Top Team Leader of the DEPI Leadership Program</li>
+<li>&bull; Delivered 5+ end-to-end AI/ML projects with full evaluation pipelines</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Worked across datasets containing 10,000+ records on Azure</li>
+<li>&bull; Applied ML/DL techniques to real-world business problems</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Agricultural Bank of Egypt -->
+<div class="timeline-item fade-in">
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+<h3 class="text-xl font-bold text-blue-600">Summer Intern</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">Jul 2025 &ndash; Aug 2025</span>
+</div>
+<p class="text-lg font-semibold mb-1">Agricultural Bank of Egypt</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Damanhour, Egypt</p>
+
+<div class="grid sm:grid-cols-2 gap-4 mb-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Analyzed structured financial data and banking operations</li>
+<li>&bull; Managed email communications and assisted in client services</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Technologies Used</h4>
+<div class="flex flex-wrap gap-1">
+<span class="tag-pill">Excel</span><span class="tag-pill">Banking Systems</span><span class="tag-pill">Data Entry</span>
+</div>
+</div>
+</div>
+
+<div class="grid sm:grid-cols-2 gap-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Improved data-entry accuracy across banking workflows</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Processed 500+ high-value client checks weekly at 99.8% accuracy</li>
+<li>&bull; Expedited deposit timelines by two business days</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- IEEE Delta -->
+<div class="timeline-item fade-in">
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
+<div class="flex flex-wrap justify-between items-start gap-2 mb-1">
 <h3 class="text-xl font-bold text-blue-600">AI Intern</h3>
-<p class="text-lg font-semibold">IEEE Delta</p>
-<p class="text-gray-600 dark:text-gray-400 mb-3">2024</p>
-<p>Worked on AI projects and gained hands-on experience in machine learning implementations.</p>
+<span class="text-sm text-gray-500 dark:text-gray-400">Oct 2024 &ndash; Jan 2025</span>
+</div>
+<p class="text-lg font-semibold mb-1">IEEE Delta</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
+
+<div class="grid sm:grid-cols-2 gap-4 mb-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Developed ML models for classification tasks</li>
+<li>&bull; Applied statistical analysis to financial datasets</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Technologies Used</h4>
+<div class="flex flex-wrap gap-1">
+<span class="tag-pill">Python</span><span class="tag-pill">Scikit-learn</span><span class="tag-pill">Pandas</span>
+</div>
 </div>
 </div>
 
-<div class="timeline-item fade-in">
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
-<h3 class="text-xl font-bold text-blue-600">Intern</h3>
-<p class="text-lg font-semibold">Commercial International Bank (CIB)</p>
-<p class="text-gray-600 dark:text-gray-400 mb-3">2024</p>
-<p>Gained experience in financial technology and data analysis in banking sector.</p>
+<div class="grid sm:grid-cols-2 gap-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Improved model performance through feature engineering</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Achieved up to 95% accuracy on real-world datasets</li>
+<li>&bull; Worked with financial datasets of 50,000+ records</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
+<!-- Menofia University Instructor -->
 <div class="timeline-item fade-in">
 <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg card-hover">
-<h3 class="text-xl font-bold text-blue-600">Trainee</h3>
-<p class="text-lg font-semibold">DEPI & ITI</p>
-<p class="text-gray-600 dark:text-gray-400 mb-3">2023-2024</p>
-<p>Completed intensive training programs in data science and software development.</p>
+<div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+<h3 class="text-xl font-bold text-blue-600">Programming Instructor (Peer Teaching)</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">2024 &ndash; Present</span>
+</div>
+<p class="text-lg font-semibold mb-1">Menofia University</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="fas fa-location-dot mr-1"></i>Remote</p>
+
+<div class="grid sm:grid-cols-2 gap-4 mb-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Responsibilities</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Delivered peer-led programming and data science sessions</li>
+<li>&bull; Explained programming fundamentals, statistics, and intro ML concepts</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Technologies Used</h4>
+<div class="flex flex-wrap gap-1">
+<span class="tag-pill">Python</span><span class="tag-pill">Statistics</span><span class="tag-pill">Teaching Tools</span>
 </div>
 </div>
+</div>
+
+<div class="grid sm:grid-cols-2 gap-4">
+<div>
+<h4 class="font-semibold text-sm mb-1">Key Achievements</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Mentored classmates through coding exercises and problem-solving</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm mb-1">Impact / Results</h4>
+<ul class="text-sm space-y-1 text-gray-600 dark:text-gray-400">
+<li>&bull; Ongoing peer-teaching role supporting multiple student cohorts</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 </div>
 </section>
 
-<!-- Services Section -->
+<!-- GitHub Statistics Section -->
 <section class="py-20 bg-white dark:bg-gray-900">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Services Offered</h2>
+<h2 class="text-4xl font-bold mb-4">GitHub Activity</h2>
 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+<p class="text-gray-600 dark:text-gray-400 mt-4">Live stats pulled from <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">github.com/NsElgezawy</a></p>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-2xl card-hover fade-in">
-<i class="fas fa-robot text-3xl text-blue-600 mb-4"></i>
-<h3 class="text-lg font-bold mb-2">ML Solutions</h3>
-<p class="text-sm">End-to-end machine learning model development and deployment</p>
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+<div class="gh-stat-card fade-in">
+<img src="https://github-readme-stats.vercel.app/api?username=NsElgezawy&show_icons=true&count_private=true&hide_border=true&title_color=667eea&icon_color=764ba2&text_color=64748b&bg_color=00000000" alt="GitHub stats for NsElgezawy" loading="lazy">
 </div>
-
-<div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 p-6 rounded-2xl card-hover fade-in">
-<i class="fas fa-chart-line text-3xl text-green-600 mb-4"></i>
-<h3 class="text-lg font-bold mb-2">Data Visualization</h3>
-<p class="text-sm">Transform complex data into compelling visual stories</p>
+<div class="gh-stat-card fade-in">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NsElgezawy&layout=compact&hide_border=true&title_color=667eea&text_color=64748b&bg_color=00000000" alt="Most used languages for NsElgezawy" loading="lazy">
 </div>
-
-<div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 p-6 rounded-2xl card-hover fade-in">
-<i class="fas fa-eye text-3xl text-purple-600 mb-4"></i>
-<h3 class="text-lg font-bold mb-2">Computer Vision</h3>
-<p class="text-sm">Deep learning solutions for image and video analysis</p>
 </div>
-
-<div class="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900 dark:to-red-800 p-6 rounded-2xl card-hover fade-in">
-<i class="fas fa-database text-3xl text-red-600 mb-4"></i>
-<h3 class="text-lg font-bold mb-2">Database Design</h3>
-<p class="text-sm">Efficient database architecture and management solutions</p>
-</div>
+<div class="gh-stat-card fade-in">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=NsElgezawy&hide_border=true&background=00000000&ring=667eea&fire=764ba2&currStreakLabel=667eea" alt="GitHub streak stats for NsElgezawy" loading="lazy">
 </div>
 </div>
 </section>
@@ -424,249 +584,458 @@ Passionate about open-source, continuous learning, and delivering scalable, impa
 <!-- Projects Section -->
 <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16 fade-in">
+<div class="text-center mb-12 fade-in">
 <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
 </div>
+
+<!-- Search + Filter -->
+<div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10 fade-in">
+<div class="relative w-full md:w-80">
+<i class="fas fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+<input id="project-search" type="text" placeholder="Search projects..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+</div>
+<div class="flex flex-wrap gap-2 justify-center">
+<button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="all">All</button>
+<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="nlp">NLP</button>
+<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="cv">Computer Vision</button>
+<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="rl">Reinforcement Learning</button>
+<button class="filter-btn px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm" data-filter="ml">ML Pipelines</button>
+</div>
+</div>
+
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in">
-<div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-hospital text-white text-4xl"></i>
+
+<!-- Land Type Classification -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv,ml">
+<div class="w-full h-40 bg-gradient-to-br from-green-400 to-teal-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-satellite text-white text-4xl"></i>
 </div>
-<h3 class="text-xl font-bold mb-2">DocHub</h3>
-<p class="text-gray-600 dark:text-gray-400 mb-4">Healthcare Management System with patient records and appointment scheduling</p>
-<a href="https://github.com/Mohamedashraf2005/HealthCareManagementSystem" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-<i class="fab fa-github mr-2"></i> View on GitHub
-</a>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Land Type Classification (Sentinel-2)</h3>
+<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Classify terrain types from satellite imagery for environmental monitoring.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> EuroSAT Sentinel-2, 27,000+ image samples, 10 land-cover classes.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> CNN-based deep learning classifier with image preprocessing pipeline.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 92% accuracy &middot; 89% F1-score.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Python</span><span class="tag-pill">Remote Sensing</span><span class="tag-pill">Deep Learning</span><span class="tag-pill">Computer Vision</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy/Land-Type-Classification-Sentinel-2" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/TJZ4OyyqDVA" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+</div>
 </div>
 
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in">
-<div class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-globe text-white text-4xl"></i>
+<!-- AI Vision Pipeline -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv,nlp,ml">
+<div class="w-full h-40 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-wand-magic-sparkles text-white text-4xl"></i>
 </div>
-<h3 class="text-xl font-bold mb-2">SadeeqMap</h3>
-<p class="text-gray-600 dark:text-gray-400 mb-4">Interactive World Map Quiz application for geography learning</p>
-<a href="https://nselgezawy.github.io/SadeeqMap" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-<i class="fab fa-github mr-2"></i> View Website
-</a>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">AI-Vision-Pipeline</h3>
+<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Turn an image into a translated story through one automated pipeline.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Real-time user-uploaded images via web app.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> Azure Computer Vision + Hugging Face Transformers + Azure Translator, modular multi-stage workflow.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> Real-time, multilingual end-to-end generation.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Python</span><span class="tag-pill">Computer Vision</span><span class="tag-pill">Gradio</span><span class="tag-pill">Azure</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy/AI-Vision-Pipeline" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/8WcWmKlBSo4" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+</div>
 </div>
 
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in">
-<div class="w-full h-48 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fas fa-image text-white text-4xl"></i>
+<!-- Hand Gesture Control -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv">
+<div class="w-full h-40 bg-gradient-to-br from-orange-400 to-pink-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-hand text-white text-4xl"></i>
 </div>
-<h3 class="text-xl font-bold mb-2">Digital Image Processing</h3>
-<p class="text-gray-600 dark:text-gray-400 mb-4">Advanced image processing application with multiple filters and effects</p>
-<a href="https://github.com/NsElgezawy" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-<i class="fab fa-github mr-2"></i> View on GitHub
-</a>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Hand Gesture System Control</h3>
+<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Enable touchless computer interaction through hand gestures.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Live webcam feed, 21-point hand landmark detection.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> MediaPipe landmark tracking + OpenCV gesture mapping.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 10 real-time gesture-based commands.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Python</span><span class="tag-pill">OpenCV</span><span class="tag-pill">MediaPipe</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy/system_control_using_hand_gesture_detection" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/BtfRSgybSLs" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+</div>
 </div>
 
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in">
-<div class="w-full h-48 bg-gradient-to-br from-red-400 to-red-600 rounded-lg mb-4 flex items-center justify-center">
+<!-- AI News Intelligence -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp,ml">
+<div class="w-full h-40 bg-gradient-to-br from-purple-400 to-violet-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-newspaper text-white text-4xl"></i>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">AI News Intelligence System</h3>
+<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Classify, verify, and summarize news at scale, including fake-news detection.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> 200,000+ news articles across 15 categories.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> Ensemble of DistilBERT + RoBERTa with an LLM-based verification stage.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> 84% F1-score on multi-class categorization.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Python</span><span class="tag-pill">NLP</span><span class="tag-pill">Transformers</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy/AI-News-Intelligence-System-for-Classification-Fake-News-Detection-and-Summarization" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/DdLCFc6UpP0" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+</div>
+</div>
+
+<!-- GoalNet-RL -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="rl">
+<div class="w-full h-40 bg-gradient-to-br from-emerald-400 to-cyan-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-futbol text-white text-4xl"></i>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">GoalNet-RL: Multi-Agent Football RL</h3>
+<span class="status-badge status-complete"><span class="status-dot"></span>Complete</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Train cooperative multi-agent football strategies with reinforcement learning.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Custom 20&times;20 grid-based simulated environment.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> DQN, Double DQN, and Dueling DQN across a 4-stage curriculum (24 checkpoints).</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Metrics:</span> Up to 74% goal rate with emergent cooperative gameplay.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Python</span><span class="tag-pill">PyTorch</span><span class="tag-pill">Deep Q-Networks</span><span class="tag-pill">Multi-Agent</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy/GoalNet-RL" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>Repository</a>
+<a href="https://youtu.be/zNyJIAc7bDc" target="_blank" rel="noopener" class="inline-flex items-center text-red-600 hover:text-red-800"><i class="fab fa-youtube mr-2"></i>Demo</a>
+</div>
+</div>
+
+<!-- Criminal Interrogation Analysis (graduation project, in progress) -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp">
+<div class="w-full h-40 bg-gradient-to-br from-slate-500 to-gray-700 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-user-shield text-white text-4xl"></i>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Explainable Credibility &amp; Contradiction Detection</h3>
+<span class="status-badge status-progress"><span class="status-dot"></span>In Progress</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Detect linguistic inconsistencies and credibility signals in criminal interrogation statements.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Dataset:</span> Columbia-SRI-Colorado Corpus, LIAR Dataset, Deceptive Opinion Spam Corpus.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Architecture:</span> NLP + Knowledge Graphs + Graph Neural Networks with Explainable AI (XAI) layers.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Status:</span> Graduation project &mdash; Stage 1 in progress (dataset collection &amp; analysis).</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">NLP</span><span class="tag-pill">Knowledge Graphs</span><span class="tag-pill">GNN</span><span class="tag-pill">XAI</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<span class="inline-flex items-center text-gray-400"><i class="fas fa-lock mr-2"></i>Repository coming soon</span>
+</div>
+</div>
+
+<!-- Fake News Detection (planned, separate from News Intelligence ensemble work) -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="nlp">
+<div class="w-full h-40 bg-gradient-to-br from-rose-400 to-red-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-circle-exclamation text-white text-4xl"></i>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Fake News Detection System</h3>
+<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Standalone transformer-based fake news classifier, extending the News Intelligence work.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Transformer-based binary and multi-class classification.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">NLP</span><span class="tag-pill">Transformers</span><span class="tag-pill">Classification</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<span class="inline-flex items-center text-gray-400"><i class="fas fa-clock mr-2"></i>Coming soon</span>
+</div>
+</div>
+
+<!-- Deep Clustering -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="ml">
+<div class="w-full h-40 bg-gradient-to-br from-amber-400 to-orange-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-circle-nodes text-white text-4xl"></i>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Deep Clustering (DEC / IDEC)</h3>
+<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Explore unsupervised representation learning for clustering high-dimensional data.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Deep Embedded Clustering (DEC) and Improved DEC using autoencoders.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">Autoencoders</span><span class="tag-pill">Unsupervised Learning</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<span class="inline-flex items-center text-gray-400"><i class="fas fa-clock mr-2"></i>Coming soon</span>
+</div>
+</div>
+
+<!-- VizionaryML -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="ml">
+<div class="w-full h-40 bg-gradient-to-br from-red-400 to-rose-600 rounded-lg mb-4 flex items-center justify-center">
 <i class="fas fa-cogs text-white text-4xl"></i>
 </div>
-<h3 class="text-xl font-bold mb-2">VizionaryML</h3>
-<p class="text-gray-600 dark:text-gray-400 mb-4">End-to-End ML Pipeline with automated model training and evaluation</p>
-<a href="https://github.com/NsElgezawy" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-<i class="fab fa-github mr-2"></i> View on GitHub
-</a>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">VizionaryML</h3>
+<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> An end-to-end ML pipeline with automated training and evaluation.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Configurable pipeline covering preprocessing through model evaluation.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">ML Pipeline</span><span class="tag-pill">Automation</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+</div>
 </div>
 
-<div class="project-card rounded-2xl p-6 shadow-lg fade-in">
-<div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg mb-4 flex items-center justify-center">
-<i class="fab fa-google-play text-white text-4xl"></i>
+<!-- Digital Image Processing Suite -->
+<div class="project-card rounded-2xl p-6 shadow-lg fade-in" data-category="cv">
+<div class="w-full h-40 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mb-4 flex items-center justify-center">
+<i class="fas fa-image text-white text-4xl"></i>
 </div>
-<h3 class="text-xl font-bold mb-2">Play Store Analysis</h3>
-<p class="text-gray-600 dark:text-gray-400 mb-4">Comprehensive data cleaning and analysis of Google Play Store data</p>
-<a href="https://github.com/NsElgezawy" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-<i class="fab fa-github mr-2"></i> View on GitHub
-</a>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold">Digital Image Processing Suite</h3>
+<span class="status-badge status-progress"><span class="status-dot"></span>Planned</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3"><span class="font-semibold">Problem:</span> Advanced image processing app with multiple filters and enhancement effects.</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4"><span class="font-semibold">Approach:</span> Classical and deep-learning-based image enhancement techniques.</p>
+<div class="flex flex-wrap mb-4">
+<span class="tag-pill">OpenCV</span><span class="tag-pill">Image Enhancement</span>
+</div>
+<div class="flex flex-wrap gap-4 text-sm font-semibold">
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
 </div>
 </div>
+
+</div>
+
+<p id="no-results" class="text-center text-gray-500 dark:text-gray-400 mt-10 hidden">No projects match your search.</p>
 </div>
 </section>
 
-<!-- Achievements Section -->
+<!-- Achievements & Recruiter Highlights Section -->
 <section class="py-20 bg-white dark:bg-gray-900">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Achievements & Certifications</h2>
+<h2 class="text-4xl font-bold mb-4">Achievements</h2>
 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-2xl text-center card-hover fade-in">
-<i class="fas fa-certificate text-3xl text-blue-600 mb-4"></i>
-<h3 class="font-bold mb-2">DataCamp</h3>
-<p class="text-sm">Data Science Certifications</p>
+
+<div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16">
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>Completed the DEPI Microsoft Machine Learning Engineer Track</span>
+</div>
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>AI Intern at IEEE Delta, achieving up to 95% model accuracy</span>
+</div>
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>Summer Internship at Agricultural Bank of Egypt</span>
+</div>
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>Built 15+ AI &amp; Data Science projects across NLP, CV, and RL</span>
+</div>
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>Recognized as Top Team Leader in the DEPI Leadership Program</span>
+</div>
+<div class="flex items-start bg-gray-50 dark:bg-gray-800 p-4 rounded-lg fade-in">
+<i class="fas fa-circle-check text-green-500 mt-1 mr-3"></i>
+<span>Earned multiple AI &amp; Machine Learning certifications</span>
+</div>
 </div>
 
-<div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 p-6 rounded-2xl text-center card-hover fade-in">
-<i class="fas fa-award text-3xl text-green-600 mb-4"></i>
-<h3 class="font-bold mb-2">DEPI</h3>
-<p class="text-sm">Digital Egypt Program</p>
+<!-- Recruiter-Focused Quick Highlights -->
+<div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-8 fade-in">
+<h3 class="text-xl font-bold mb-4 text-center">Quick Highlights</h3>
+<div class="grid sm:grid-cols-2 gap-3 text-sm">
+<div class="flex items-center"><i class="fas fa-diagram-project text-blue-600 mr-2"></i>15+ AI Projects Completed</div>
+<div class="flex items-center"><i class="fas fa-briefcase text-blue-600 mr-2"></i>3+ Professional Internships</div>
+<div class="flex items-center"><i class="fas fa-certificate text-blue-600 mr-2"></i>10+ Technical Certifications</div>
+<div class="flex items-center"><i class="fas fa-graduation-cap text-blue-600 mr-2"></i>AI Student at Menoufia University</div>
+<div class="flex items-center"><i class="fas fa-brain text-blue-600 mr-2"></i>Focused on ML, NLP, and Computer Vision</div>
+<div class="flex items-center"><i class="fas fa-handshake text-blue-600 mr-2"></i>Open to Internships and Junior AI Roles</div>
+</div>
 </div>
 
-<div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 p-6 rounded-2xl text-center card-hover fade-in">
-<i class="fas fa-medal text-3xl text-purple-600 mb-4"></i>
-<h3 class="font-bold mb-2">ITI</h3>
-<p class="text-sm">Information Technology Institute</p>
+</div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="py-20 bg-gray-50 dark:bg-gray-800">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<h2 class="text-4xl font-bold mb-4">Certifications</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
+<i class="fas fa-certificate text-3xl text-blue-600 mr-4 mt-1"></i>
+<div>
+<h3 class="font-bold mb-1">DEPI AI &amp; Machine Learning Engineer Program</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Digital Egypt Pioneers Initiative (Microsoft Track)</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Nov 2025</p>
+</div>
 </div>
 
-<div class="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900 dark:to-red-800 p-6 rounded-2xl text-center card-hover fade-in">
-<i class="fab fa-github text-3xl text-red-600 mb-4"></i>
-<h3 class="font-bold mb-2">GitHub</h3>
-<p class="text-sm">Open Source Contributions</p>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
+<i class="fas fa-award text-3xl text-green-600 mr-4 mt-1"></i>
+<div>
+<h3 class="font-bold mb-1">DEPI Leadership Certificate</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Digital Egypt Pioneers Initiative</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025 &mdash; Top Team Leader Recognition</p>
+</div>
+</div>
+
+<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
+<i class="fas fa-medal text-3xl text-purple-600 mr-4 mt-1"></i>
+<div>
+<h3 class="font-bold mb-1">Summer Internship Certificate</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: Agricultural Bank of Egypt</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Aug 2025</p>
+</div>
+</div>
+
+<div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg card-hover fade-in flex items-start">
+<i class="fas fa-microchip text-3xl text-red-600 mr-4 mt-1"></i>
+<div>
+<h3 class="font-bold mb-1">AI Internship Certificate</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issuer: IEEE Delta</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Issued: Jan 2025</p>
+</div>
+</div>
+
+</div>
+<p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8 fade-in">Additional course-based certifications in Python, statistics, and data analytics complete the credential set.</p>
+</div>
+</section>
+
+<!-- Open Source & Community Section -->
+<section class="py-20 bg-white dark:bg-gray-900">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16 fade-in">
+<h2 class="text-4xl font-bold mb-4">Open Source &amp; Community</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+</div>
+
+<div class="gh-stat-card mb-10 fade-in">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=NsElgezawy&theme=minimal&hide_border=true&bg_color=00000000&color=667eea&line=764ba2&point=667eea" alt="GitHub contribution activity graph for NsElgezawy" loading="lazy">
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+<div class="fade-in">
+<h3 class="text-xl font-bold mb-4">Open Source Projects</h3>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start"><i class="fas fa-code-branch text-blue-600 mr-3 mt-1"></i>Maintains and publishes all major projects publicly on <a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">GitHub</a></li>
+<li class="flex items-start"><i class="fas fa-code-pull-request text-blue-600 mr-3 mt-1"></i>Active contributor to peer and university project repositories</li>
+<li class="flex items-start"><i class="fas fa-star text-blue-600 mr-3 mt-1"></i>Repositories span NLP, Computer Vision, and Reinforcement Learning</li>
+</ul>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-bold mb-4">Community Involvement</h3>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start"><i class="fas fa-users text-purple-600 mr-3 mt-1"></i>Vice Head, EduGate Student Activity &mdash; led a 20+ member team (2023&ndash;2025)</li>
+<li class="flex items-start"><i class="fas fa-chalkboard-user text-purple-600 mr-3 mt-1"></i>Programming Instructor (Peer Teaching), Menofia University</li>
+<li class="flex items-start"><i class="fas fa-microphone text-purple-600 mr-3 mt-1"></i>Guest Speaker, Git &amp; GitHub Workshop, NEX Student Activity (2026)</li>
+<li class="flex items-start"><i class="fas fa-people-group text-purple-600 mr-3 mt-1"></i>Team Leader, DEPI Leadership Program</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-20 gradient-bg tech-pattern">
+<section id="contact" class="relative py-20 gradient-bg tech-pattern overflow-hidden">
 <div class="absolute inset-0 bg-black/20"></div>
-<div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+<div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+
+<!-- CTA Banner -->
 <div class="text-center mb-16 fade-in">
-<h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
-<p class="text-xl">Ready to bring your AI and data science projects to life?</p>
+<h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Work Together</h2>
+<p class="text-xl mb-8">Ready to bring your AI and data science projects to life?</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="mailto:nselgezawy@gmail.com" class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+<i class="fas fa-envelope mr-2"></i> Email Me
+</a>
+<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105">
+<i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
+</a>
 </div>
-<div class="grid md:grid-cols-2 gap-12">
-<div class="fade-in">
-<h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
-<div class="space-y-4">
-<div class="flex items-center">
-<i class="fas fa-map-marker-alt text-2xl mr-4"></i>
-<span>Cairo, Egypt</span>
 </div>
-<div class="flex items-center">
+
+<!-- Contact Links -->
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in">
+<a href="mailto:nselgezawy@gmail.com" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fas fa-envelope text-2xl mr-4"></i>
-<a href="mailto:nselgezawy@gmail.com" class="hover:text-blue-300">nselgezawy@gmail.com</a>
+<div>
+<p class="text-sm text-blue-100">Email</p>
+<p class="font-semibold text-sm break-all">nselgezawy@gmail.com</p>
 </div>
-<div class="flex items-center">
-<i class="fas fa-phone text-2xl mr-4"></i>
-<span>+20 1068752980</span>
-</div>
-<div class="flex items-center">
+</a>
+<a href="https://linkedin.com/in/NsElgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-linkedin text-2xl mr-4"></i>
-<a href="https://linkedin.com/in/NsElgezawy" class="hover:text-blue-300">linkedin.com/in/NsElgezawy</a>
+<div>
+<p class="text-sm text-blue-100">LinkedIn</p>
+<p class="font-semibold text-sm">linkedin.com/in/NsElgezawy</p>
 </div>
-<div class="flex items-center">
+</a>
+<a href="https://github.com/NsElgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
 <i class="fab fa-github text-2xl mr-4"></i>
-<a href="https://github.com/NsElgezawy" class="hover:text-blue-300">github.com/NsElgezawy</a>
+<div>
+<p class="text-sm text-blue-100">GitHub</p>
+<p class="font-semibold text-sm">github.com/NsElgezawy</p>
 </div>
+</a>
+<a href="https://kaggle.com/nselgezawy" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<i class="fab fa-kaggle text-2xl mr-4"></i>
+<div>
+<p class="text-sm text-blue-100">Kaggle</p>
+<p class="font-semibold text-sm">kaggle.com/nselgezawy</p>
 </div>
+</a>
+<a href="https://wa.me/201068752980" target="_blank" rel="noopener" class="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<i class="fab fa-whatsapp text-2xl mr-4"></i>
+<div>
+<p class="text-sm text-blue-100">WhatsApp</p>
+<p class="font-semibold text-sm">+20 106 875 2980</p>
 </div>
-<div class="fade-in">
-<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-<h3 class="text-2xl font-bold mb-6">Send a Message</h3>
-<form class="space-y-4">
-<input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white">
-<input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white">
-<textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/70 text-white resize-none"></textarea>
-<button type="submit" class="w-full bg-white text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-Send Message
-</button>
-</form>
+</a>
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-xl hover:bg-white/20 transition-colors">
+<i class="fas fa-file-arrow-down text-2xl mr-4"></i>
+<div>
+<p class="text-sm text-blue-100">Resume</p>
+<p class="font-semibold text-sm">Download PDF</p>
 </div>
+</a>
 </div>
-</div>
+
 </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-8">
+<footer class="bg-gray-900 text-white py-10">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2024 Anas Mohamed El-Gezawy. All rights reserved.</p>
-<p class="mt-2 text-gray-400">Built with passion for AI and Data Science</p>
+<p>&copy; 2026 Anas Mohamed El-Gezawy. All rights reserved.</p>
+<p class="mt-2 text-gray-400">Built with focus on AI, NLP, and Computer Vision</p>
+<p class="mt-4 text-xs text-gray-500">Visitors: <span id="visitor-counter">&mdash;</span></p>
 </div>
 </footer>
 
-<script>
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
+<!-- Back to Top -->
+<button id="back-to-top" class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg flex items-center justify-center" aria-label="Back to top">
+<i class="fas fa-arrow-up"></i>
+</button>
 
-themeToggle.addEventListener('click', () => {
-html.classList.toggle('dark');
-localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-});
-
-// Load saved theme
-if (localStorage.getItem('theme') === 'dark') {
-html.classList.add('dark');
-}
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-}
-});
-});
-
-// Fade in animation on scroll
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}, observerOptions);
-
-document.querySelectorAll('.fade-in').forEach(el => {
-observer.observe(el);
-});
-
-// Typing animation for hero section
-const typingText = document.querySelector('.typing-animation');
-if (typingText) {
-const text = typingText.textContent;
-typingText.textContent = '';
-let i = 0;
-
-function typeWriter() {
-if (i < text.length) {
-typingText.textContent += text.charAt(i);
-i++;
-setTimeout(typeWriter, 100);
-}
-}
-
-setTimeout(typeWriter, 1000);
-}
-
-// Contact form submission
-document.querySelector('form').addEventListener('submit', function(e) {
-e.preventDefault();
-alert('Thank you for your message! I\'ll get back to you soon.');
-this.reset();
-});
-
-// Mobile menu toggle (if needed)
-const mobileMenuToggle = document.createElement('button');
-mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-mobileMenuToggle.className = 'md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700';
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-const scrolled = window.pageYOffset;
-const hero = document.querySelector('#home');
-if (hero) {
-hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-}
-});
-</script>
 <script src="script.js"></script>
 </body>
 </html>
