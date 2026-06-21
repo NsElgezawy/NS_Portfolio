@@ -666,3 +666,844 @@ html.dark .status-progress {
 @media (max-width: 768px) {
   .timeline-item::before { left: -30px; }
 }
+
+/* =====================================================
+   Creative Mode (Minecraft-Inspired Easter Egg)
+   Scoped entirely under html.minecraft-mode — the
+   default professional theme is never touched.
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html.minecraft-mode {
+  --primary: #5B8731;
+  --secondary: #3A5F1F;
+  --accent: #C79B3B;
+  --background: #2B2B2B;
+  --surface: #C6C6C6;
+  --surface-2: #9C9C9C;
+  --text-primary: #1D1D1D;
+  --text-secondary: #3F3F3F;
+  --border: #373737;
+  --highlight: #B35A1F;
+
+  --primary-rgb: 91, 135, 49;
+  --secondary-rgb: 58, 95, 31;
+  --accent-rgb: 199, 155, 59;
+  --surface-rgb: 198, 198, 198;
+  --background-rgb: 43, 43, 43;
+  --highlight-rgb: 179, 90, 31;
+}
+
+/* ---------- Theme Transition Overlay ---------- */
+#theme-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 500;
+  transition: opacity 0.22s ease;
+}
+
+#theme-transition-overlay.flash { opacity: 0.4; }
+
+html.minecraft-mode body,
+html.minecraft-mode .card,
+html.minecraft-mode .project-card,
+html.minecraft-mode nav.nav-glass,
+html.minecraft-mode .btn-primary,
+html.minecraft-mode .btn-outline,
+html.minecraft-mode .tag-pill,
+html.minecraft-mode .status-badge {
+  transition: background-color 0.4s ease, color 0.4s ease,
+              border-color 0.4s ease, box-shadow 0.4s ease, transform 0.15s ease;
+}
+
+/* ---------- Pixel Typography ---------- */
+html.minecraft-mode h1,
+html.minecraft-mode h2,
+html.minecraft-mode h3,
+html.minecraft-mode h4,
+html.minecraft-mode .font-display,
+html.minecraft-mode .eyebrow,
+html.minecraft-mode .logo-text,
+html.minecraft-mode .btn-primary,
+html.minecraft-mode .btn-outline,
+html.minecraft-mode .btn-ghost,
+html.minecraft-mode .tag-pill,
+html.minecraft-mode .status-badge,
+html.minecraft-mode .stat-number,
+html.minecraft-mode .filter-btn,
+html.minecraft-mode #creative-badge {
+  font-family: 'Press Start 2P', var(--font-mono), monospace;
+  letter-spacing: 0;
+}
+
+html.minecraft-mode h1 { font-size: 1.9rem !important; line-height: 1.6 !important; }
+html.minecraft-mode h2 { font-size: 1.6rem !important; line-height: 1.7 !important; }
+html.minecraft-mode .eyebrow::before { content: '\26CF '; }
+
+/* ---------- Pixel Textures (low-opacity) ---------- */
+html.minecraft-mode .dot-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.18) 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+html.minecraft-mode #home,
+html.minecraft-mode #contact {
+  position: relative;
+}
+
+html.minecraft-mode #home::before,
+html.minecraft-mode #contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.18) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.25) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.25) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+/* ---------- Blocky Cards & Panels ---------- */
+html.minecraft-mode .card,
+html.minecraft-mode .project-card,
+html.minecraft-mode .gh-stat-card,
+html.minecraft-mode .glass,
+html.minecraft-mode .glass-dark,
+html.minecraft-mode nav.nav-glass {
+  border-radius: 0 !important;
+  border: 4px solid var(--border) !important;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.3),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.4),
+    6px 6px 0 rgba(0, 0, 0, 0.28);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--surface);
+}
+
+html.minecraft-mode nav.nav-glass {
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.28);
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+html.minecraft-mode .card-hover:hover,
+html.minecraft-mode .project-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.35),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45),
+    9px 9px 0 rgba(0, 0, 0, 0.32);
+}
+
+html.minecraft-mode .video-thumb,
+html.minecraft-mode .thumb-only {
+  border-bottom: 4px solid var(--border);
+}
+
+/* Inventory-slot corner mark on project cards */
+html.minecraft-mode .project-card { position: relative; }
+
+html.minecraft-mode .project-card::after {
+  content: '\26CF';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+/* ---------- Pixel Buttons ---------- */
+html.minecraft-mode .btn-primary,
+html.minecraft-mode .btn-outline,
+html.minecraft-mode .btn-ghost,
+html.minecraft-mode .filter-btn,
+html.minecraft-mode #theme-toggle,
+html.minecraft-mode #mode-menu-btn,
+html.minecraft-mode #mobile-menu-btn,
+html.minecraft-mode #back-to-top {
+  border-radius: 0 !important;
+  border: 2px solid var(--border) !important;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.45),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45);
+}
+
+html.minecraft-mode .btn-primary:hover,
+html.minecraft-mode .btn-outline:hover,
+html.minecraft-mode .filter-btn:hover,
+html.minecraft-mode .btn-ghost:hover {
+  transform: translate(-2px, -2px);
+}
+
+html.minecraft-mode .btn-primary:active,
+html.minecraft-mode .btn-outline:active,
+html.minecraft-mode .filter-btn:active,
+html.minecraft-mode .btn-ghost:active,
+html.minecraft-mode #theme-toggle:active,
+html.minecraft-mode #mode-menu-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow:
+    inset -2px -2px 0 rgba(255, 255, 255, 0.3),
+    inset 2px 2px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Pixel Tags / Badges ---------- */
+html.minecraft-mode .tag-pill,
+html.minecraft-mode .status-badge,
+html.minecraft-mode .video-badge {
+  border-radius: 0 !important;
+  border: 2px solid var(--border) !important;
+}
+
+/* ---------- Pixel Mode Dropdown ---------- */
+html.minecraft-mode #mode-menu-dropdown,
+html.minecraft-mode .mode-option {
+  border-radius: 0 !important;
+}
+
+html.minecraft-mode #mode-menu-dropdown {
+  border: 3px solid var(--border) !important;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.28) !important;
+}
+
+/* ---------- Slightly Pixelated Icons ---------- */
+html.minecraft-mode i.fas,
+html.minecraft-mode i.fab,
+html.minecraft-mode i.far {
+  filter: contrast(1.5) saturate(1.35);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Logo: Pickaxe + Active Indicator ---------- */
+.logo-pickaxe {
+  display: none;
+  font-size: 1.05rem;
+  margin-left: -2px;
+}
+
+html.minecraft-mode .logo-pickaxe {
+  display: inline-block;
+  animation: pickaxe-wiggle 1.8s ease-in-out infinite;
+}
+
+@keyframes pickaxe-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-18deg); }
+}
+
+.mc-indicator {
+  display: none;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  background: #55ff55;
+  border: 1px solid #2b6b1f;
+  box-shadow: 0 0 0 2px rgba(85, 255, 85, 0.25);
+}
+
+html.minecraft-mode .mc-indicator {
+  display: inline-block;
+  animation: mc-blink 1.4s steps(2) infinite;
+}
+
+@keyframes mc-blink { 50% { opacity: 0.35; } }
+
+/* ---------- Hero "Creative Mode Enabled" Badge ---------- */
+#creative-badge {
+  display: none;
+  margin: 0 auto 1.5rem auto;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  font-size: 0.62rem;
+  background: rgba(85, 255, 85, 0.16);
+  border: 2px solid #55ff55;
+  color: #eafbe4;
+  padding: 0.6rem 1rem;
+}
+
+html.minecraft-mode #creative-badge {
+  display: inline-flex;
+  animation: badge-pop 0.4s ease;
+}
+
+@keyframes badge-pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Label Swaps (stats / section titles) ---------- */
+.label-mc, .label-terminal, .label-research { display: none; }
+html.minecraft-mode .label-mc { display: inline; }
+html.terminal-mode .label-terminal { display: inline; }
+html.research-mode .label-research { display: inline; }
+html.minecraft-mode .label-normal,
+html.terminal-mode .label-normal,
+html.research-mode .label-normal { display: none; }
+
+/* ---------- Mode Switcher Dropdown ---------- */
+#mode-switcher { position: relative; }
+
+#mode-menu-btn {
+  font-size: 0.95rem;
+}
+
+#mode-menu-btn .mode-label { display: none; }
+#mode-menu-btn .fa-chevron-down { transition: transform 0.25s ease; }
+#mode-menu-btn[aria-expanded="true"] .fa-chevron-down { transform: rotate(180deg); }
+
+@media (min-width: 1024px) {
+  #mode-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: auto;
+    padding: 0 0.65rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+  }
+  #mode-menu-btn .mode-label { display: inline; }
+}
+
+#mode-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 17rem;
+  max-width: 88vw;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(var(--primary-rgb), 0.05);
+  padding: 0.4rem;
+  z-index: 60;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+#mode-menu-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.mode-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  padding: 0.6rem 0.65rem;
+  border-radius: 0.6rem;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.mode-option:hover {
+  background: rgba(var(--primary-rgb), 0.08);
+}
+
+.mode-option + .mode-option { margin-top: 0.15rem; }
+
+.mode-option-icon {
+  font-size: 1.15rem;
+  width: 1.6rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.mode-option-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.mode-option-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mode-option-sub {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.mode-check {
+  font-size: 0.7rem;
+  color: var(--primary);
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.mode-option.active {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-color: rgba(var(--primary-rgb), 0.3);
+}
+
+.mode-option.active .mode-check { opacity: 1; }
+
+/* =====================================================
+   Terminal Mode — Hacker / CLI Easter Egg
+   Scoped entirely under html.terminal-mode.
+   ===================================================== */
+
+html.terminal-mode {
+  --primary: #00ff88;
+  --secondary: #00cc6a;
+  --accent: #00ff88;
+  --background: #0a0a0a;
+  --surface: #0d0d0d;
+  --surface-2: #111315;
+  --text-primary: #00ff88;
+  --text-secondary: #00cc6a;
+  --border: #00ff88;
+  --highlight: #00ff88;
+
+  --primary-rgb: 0, 255, 136;
+  --secondary-rgb: 0, 204, 106;
+  --accent-rgb: 0, 255, 136;
+  --surface-rgb: 13, 13, 13;
+  --background-rgb: 10, 10, 10;
+  --highlight-rgb: 0, 255, 136;
+}
+
+html.terminal-mode body {
+  font-family: var(--font-mono);
+}
+
+html.terminal-mode h1,
+html.terminal-mode h2,
+html.terminal-mode h3,
+html.terminal-mode h4,
+html.terminal-mode .font-display {
+  font-family: var(--font-mono) !important;
+  text-transform: none;
+}
+
+html.terminal-mode .eyebrow::before { content: '$ '; }
+
+/* Scanline / CRT-ish overlay */
+html.terminal-mode body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 136, 0.025) 0px,
+    rgba(0, 255, 136, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+html.terminal-mode .dot-grid {
+  background-image: radial-gradient(rgba(0, 255, 136, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ---------- Terminal Cards & Windows ---------- */
+html.terminal-mode .card,
+html.terminal-mode .gh-stat-card,
+html.terminal-mode .glass,
+html.terminal-mode .glass-dark {
+  border-radius: 2px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--surface);
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.06);
+}
+
+html.terminal-mode nav.nav-glass {
+  background: rgba(10, 10, 10, 0.92);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.08);
+}
+
+html.terminal-mode .card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 26px rgba(0, 255, 136, 0.22);
+  border-color: var(--primary) !important;
+}
+
+html.terminal-mode .project-card {
+  border-radius: 2px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--surface);
+}
+
+html.terminal-mode .project-card:hover {
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.25);
+  border-color: var(--primary) !important;
+}
+
+/* Terminal window chrome on project thumbnails */
+html.terminal-mode .project-card { position: relative; }
+html.terminal-mode .video-thumb,
+html.terminal-mode .thumb-only { position: relative; }
+
+html.terminal-mode .video-thumb::before,
+html.terminal-mode .thumb-only::before {
+  content: '> ' attr(data-term-cmd);
+  position: absolute;
+  top: 0; left: 0;
+  max-width: calc(100% - 84px);
+  height: 1.7rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+  background: #000;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+html.terminal-mode .video-thumb::after,
+html.terminal-mode .thumb-only::after {
+  content: '[\2013] [\25A1] [\00D7]';
+  position: absolute;
+  top: 0; right: 0;
+  height: 1.7rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+  background: #000;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Generic card window chrome (skills / education / experience / certs) */
+html.terminal-mode .card {
+  position: relative;
+}
+
+/* ---------- Terminal Cursor ---------- */
+html.terminal-mode .typing-cursor {
+  background: var(--primary);
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.7);
+}
+
+.term-cursor-block {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: #00ff88;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  animation: cursor-blink 1s steps(2, start) infinite;
+}
+
+/* ---------- Typing Reveal for Sections ---------- */
+html.terminal-mode .fade-in {
+  clip-path: inset(0 100% 0 0);
+}
+
+html.terminal-mode .fade-in.visible {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.7s steps(24, end), opacity 0.3s ease;
+}
+
+/* ---------- Terminal Hero Block ---------- */
+html.terminal-mode #hero-normal-block { display: none; }
+
+#hero-terminal-block {
+  display: none;
+  text-align: left;
+  max-width: 32rem;
+  margin: 0 auto 2rem auto;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid #00ff88;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+html.terminal-mode #hero-terminal-block { display: block; }
+
+#hero-terminal-block .term-prompt {
+  color: #6affb0;
+  opacity: 0.85;
+}
+
+/* ---------- Terminal Mode Toggle Button Accent ---------- */
+html.terminal-mode #theme-toggle,
+html.terminal-mode #mode-menu-btn {
+  border-color: var(--border) !important;
+}
+
+html.terminal-mode #mode-menu-dropdown {
+  border-radius: 2px !important;
+  border-color: var(--border) !important;
+  background: var(--surface);
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.12) !important;
+}
+
+html.terminal-mode .mode-option { border-radius: 2px !important; }
+html.terminal-mode .mode-option:hover { background: rgba(0, 255, 136, 0.08); }
+html.terminal-mode .mode-option.active { background: rgba(0, 255, 136, 0.12); }
+
+/* ---------- Terminal Logo ---------- */
+.logo-terminal-text,
+.logo-research-text {
+  display: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+html.terminal-mode .logo-hex,
+html.terminal-mode .logo-pulse,
+html.terminal-mode .mc-indicator,
+html.terminal-mode .logo-pickaxe,
+html.terminal-mode .logo-text {
+  display: none !important;
+}
+
+html.terminal-mode .logo-terminal-text {
+  display: inline-block;
+}
+
+html.terminal-mode .logo-terminal-text::after {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: var(--primary);
+  margin-left: 4px;
+  vertical-align: -0.15em;
+  animation: cursor-blink 1s steps(2, start) infinite;
+}
+
+/* ---------- Terminal Projects Intro ---------- */
+#projects-terminal-intro {
+  display: none;
+}
+
+html.terminal-mode #projects-terminal-intro {
+  display: block;
+  text-align: left;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem auto;
+  background: #000;
+  border: 1px solid var(--primary);
+  padding: 1rem 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.9;
+  color: var(--primary);
+}
+
+#projects-terminal-intro .term-prompt { color: #6affb0; }
+
+/* =====================================================
+   Research Mode — Academic / arXiv-Inspired Easter Egg
+   Scoped entirely under html.research-mode.
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+
+html.research-mode {
+  --primary: #8B1E1E;
+  --secondary: #5C1414;
+  --accent: #1A3C6E;
+  --background: #FAF7F0;
+  --surface: #FFFFFF;
+  --surface-2: #F3EFE6;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --border: #D8D2C2;
+  --highlight: #8B1E1E;
+
+  --primary-rgb: 139, 30, 30;
+  --secondary-rgb: 92, 20, 20;
+  --accent-rgb: 26, 60, 110;
+  --surface-rgb: 255, 255, 255;
+  --background-rgb: 250, 247, 240;
+  --highlight-rgb: 139, 30, 30;
+}
+
+html.research-mode h1,
+html.research-mode h2,
+html.research-mode h3,
+html.research-mode h4,
+html.research-mode .font-display {
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-weight: 700;
+}
+
+html.research-mode .eyebrow {
+  font-family: var(--font-mono);
+}
+
+html.research-mode .eyebrow::before { content: '\00A7 '; }
+
+/* Subtle paper grain */
+html.research-mode body {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* ---------- Academic Cards ---------- */
+html.research-mode .card,
+html.research-mode .project-card,
+html.research-mode .gh-stat-card,
+html.research-mode .glass,
+html.research-mode .glass-dark,
+html.research-mode nav.nav-glass {
+  border-radius: 0.25rem !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  background: var(--surface);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.research-mode .card-hover:hover,
+html.research-mode .project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--primary) !important;
+}
+
+html.research-mode .gradient-bg {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+}
+
+html.research-mode .tag-pill {
+  border-radius: 0.2rem;
+  font-family: var(--font-mono);
+}
+
+html.research-mode .status-badge {
+  border-radius: 0.2rem;
+}
+
+/* ---------- Research Mode Dropdown ---------- */
+html.research-mode #mode-menu-dropdown {
+  border-radius: 0.35rem !important;
+}
+
+html.research-mode .mode-option { border-radius: 0.25rem; }
+html.research-mode .mode-option.active { background: rgba(139, 30, 30, 0.08); }
+
+/* ---------- Research Logo ---------- */
+html.research-mode .logo-hex,
+html.research-mode .logo-pulse,
+html.research-mode .mc-indicator,
+html.research-mode .logo-pickaxe,
+html.research-mode .logo-text {
+  display: none !important;
+}
+
+html.research-mode .logo-research-text {
+  display: inline-block;
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.logo-research-divider {
+  color: var(--primary);
+  margin: 0 0.35em;
+  font-weight: 400;
+}
+
+/* ---------- Research Hero Badge ---------- */
+#research-badge {
+  display: none;
+  margin: 0 auto 1.5rem auto;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  padding: 0.55rem 1rem;
+}
+
+html.research-mode #research-badge {
+  display: inline-flex;
+  animation: badge-pop 0.4s ease;
+}
+
+/* ---------- Research Project Labels ---------- */
+.research-only-label {
+  display: none;
+}
+
+html.research-mode .research-only-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- Research Project Link Buttons ---------- */
+html.research-mode .proj-link-repo,
+html.research-mode .proj-link-secondary {
+  font-size: 0;
+  position: relative;
+}
+
+html.research-mode .proj-link-repo::before {
+  content: '\1F4C2 Repository';
+  font-size: 0.875rem;
+}
+
+html.research-mode .proj-link-secondary::before {
+  content: '\1F4C4 Read More';
+  font-size: 0.875rem;
+}
+
+html.research-mode .proj-link-locked {
+  font-size: 0;
+}
+
+html.research-mode .proj-link-locked::before {
+  content: '\1F4C2 Manuscript in Preparation';
+  font-size: 0.875rem;
+}
+
+/* ---------- Citation Numbering ---------- */
+.cite-number {
+  display: none;
+}
+
+html.research-mode .cite-number {
+  display: inline;
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 0.4rem;
+  font-family: var(--font-mono);
+}

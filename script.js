@@ -30,6 +30,147 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Mode Switcher (Professional / Creative / Terminal / Research) ---------- */
+  /* Only one special mode may be active at a time, selected from a single
+     dropdown menu. Fully reversible and persisted independently from the
+     dark/light theme. */
+  const transitionOverlay = document.getElementById('theme-transition-overlay');
+  const modeSwitcher = document.getElementById('mode-switcher');
+  const modeMenuBtn = document.getElementById('mode-menu-btn');
+  const modeMenuIcon = document.getElementById('mode-menu-icon');
+  const modeMenuLabel = document.getElementById('mode-menu-label');
+  const modeMenuDropdown = document.getElementById('mode-menu-dropdown');
+  const modeOptions = document.querySelectorAll('.mode-option');
+
+  const specialModes = {
+    none: { className: null, icon: '&#127917;', label: 'Modes' },
+    creative: { className: 'minecraft-mode', icon: '&#9935;&#65039;', label: 'Creative Mode' },
+    terminal: { className: 'terminal-mode', icon: '&#9000;&#65039;', label: 'Terminal Mode' },
+    research: { className: 'research-mode', icon: '&#128218;', label: 'Research Mode' }
+  };
+
+  function playBlockSound() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const now = ctx.currentTime;
+
+      for (let i = 0; i < 3; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'square';
+        const start = now + i * 0.045;
+        osc.frequency.setValueAtTime(260 - i * 60, start);
+        osc.frequency.exponentialRampToValueAtTime(70, start + 0.09);
+        gain.gain.setValueAtTime(0.08, start);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.1);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + 0.1);
+      }
+
+      setTimeout(() => ctx.close(), 400);
+    } catch (err) {
+      /* Audio not available — fail silently */
+    }
+  }
+
+  function closeModeDropdown() {
+    if (!modeMenuDropdown || !modeMenuBtn) return;
+    modeMenuDropdown.classList.remove('open');
+    modeMenuBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  function openModeDropdown() {
+    if (!modeMenuDropdown || !modeMenuBtn) return;
+    modeMenuDropdown.classList.add('open');
+    modeMenuBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function updateModeUI(activeKey) {
+    const active = specialModes[activeKey] || specialModes.none;
+
+    if (modeMenuIcon) modeMenuIcon.innerHTML = active.icon;
+    if (modeMenuLabel) modeMenuLabel.textContent = active.label;
+
+    modeOptions.forEach(opt => {
+      const isActive = opt.getAttribute('data-mode') === activeKey;
+      opt.classList.toggle('active', isActive);
+      opt.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+  }
+
+  function applySpecialMode(activeKey) {
+    Object.keys(specialModes).forEach(key => {
+      const className = specialModes[key].className;
+      if (className) html.classList.toggle(className, key === activeKey);
+    });
+    updateModeUI(activeKey);
+  }
+
+  function setSpecialMode(activeKey, persist) {
+    applySpecialMode(activeKey);
+    if (persist) {
+      localStorage.setItem('specialMode', activeKey || 'none');
+    }
+  }
+
+  function migrateLegacySpecialMode() {
+    const stored = localStorage.getItem('specialMode');
+    if (stored) return stored;
+    if (localStorage.getItem('creativeMode') === 'on') return 'creative';
+    return 'none';
+  }
+
+  const initialSpecialMode = migrateLegacySpecialMode();
+  setSpecialMode(initialSpecialMode, false);
+
+  if (modeMenuBtn) {
+    modeMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = modeMenuDropdown && modeMenuDropdown.classList.contains('open');
+      if (isOpen) {
+        closeModeDropdown();
+      } else {
+        openModeDropdown();
+      }
+    });
+  }
+
+  modeOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      const nextKey = opt.getAttribute('data-mode') || 'none';
+      const currentKey = localStorage.getItem('specialMode') || 'none';
+
+      closeModeDropdown();
+
+      if (nextKey === currentKey) return;
+
+      if (nextKey === 'creative') {
+        playBlockSound();
+      }
+
+      if (transitionOverlay) transitionOverlay.classList.add('flash');
+
+      setTimeout(() => {
+        setSpecialMode(nextKey, true);
+        if (transitionOverlay) transitionOverlay.classList.remove('flash');
+      }, 180);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (modeSwitcher && !modeSwitcher.contains(e.target)) {
+      closeModeDropdown();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModeDropdown();
+  });
+
   /* ---------- Mobile Menu ---------- */
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');

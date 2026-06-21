@@ -32,6 +32,9 @@
 </head>
 <body>
 
+<!-- Theme Transition Overlay (Creative Mode fade) -->
+<div id="theme-transition-overlay"></div>
+
 <!-- Loading Screen -->
 <div id="loader">
 <div class="loader-ring"></div>
@@ -53,8 +56,12 @@
 <polygon points="50,3 93,26 93,74 50,97 7,74 7,26" fill="url(#logoGrad)"/>
 <text x="50" y="62" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="34" fill="#ffffff">NS</text>
 </svg>
+<span class="logo-pickaxe" aria-hidden="true">&#9935;&#65039;</span>
 <span class="logo-pulse"></span>
+<span class="mc-indicator" aria-hidden="true" title="Creative Mode active"></span>
 <span class="logo-text hidden sm:inline">Anas <span>El-Gezawy</span></span>
+<span class="logo-terminal-text">NS &gt;_</span>
+<span class="logo-research-text">NS <span class="logo-research-divider">|</span> Research Portfolio</span>
 </a>
 <div class="hidden md:flex items-center space-x-7 text-sm">
 <a href="#home" class="text-muted hover:text-[var(--primary)] transition-colors">Home</a>
@@ -67,13 +74,54 @@
 <a href="#contact" class="text-muted hover:text-[var(--primary)] transition-colors">Contact</a>
 </div>
 <div class="flex items-center space-x-2">
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link hidden sm:inline-flex btn-primary !py-2 !px-4 text-sm">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link hidden lg:inline-flex btn-primary !py-2 !px-4 text-sm">
 <i class="fas fa-download mr-2"></i> Resume
 </a>
 <button id="theme-toggle" class="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--primary)] transition-colors" aria-label="Toggle theme">
 <i class="fas fa-moon dark:hidden"></i>
 <i class="fas fa-sun hidden dark:block"></i>
 </button>
+<div class="relative" id="mode-switcher">
+<button id="mode-menu-btn" class="h-9 px-2.5 lg:px-3 rounded-lg flex items-center justify-center border border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--primary)] transition-colors" aria-haspopup="true" aria-expanded="false" title="Switch portfolio mode">
+<span id="mode-menu-icon" aria-hidden="true">&#127917;</span>
+<span id="mode-menu-label" class="mode-label ml-2 whitespace-nowrap">Modes</span>
+<i class="fas fa-chevron-down ml-2 text-[0.6rem] opacity-70"></i>
+</button>
+<div id="mode-menu-dropdown" role="menu" aria-label="Portfolio modes">
+<button type="button" class="mode-option" data-mode="none" role="menuitem">
+<span class="mode-option-icon" aria-hidden="true">&#128187;</span>
+<span class="mode-option-text">
+<span class="mode-option-title">Professional Mode</span>
+<span class="mode-option-sub">Default portfolio experience</span>
+</span>
+<i class="fas fa-check mode-check" aria-hidden="true"></i>
+</button>
+<button type="button" class="mode-option" data-mode="creative" role="menuitem">
+<span class="mode-option-icon" aria-hidden="true">&#9935;&#65039;</span>
+<span class="mode-option-text">
+<span class="mode-option-title">Creative Mode</span>
+<span class="mode-option-sub">Minecraft-inspired Easter egg</span>
+</span>
+<i class="fas fa-check mode-check" aria-hidden="true"></i>
+</button>
+<button type="button" class="mode-option" data-mode="terminal" role="menuitem">
+<span class="mode-option-icon" aria-hidden="true">&#9000;&#65039;</span>
+<span class="mode-option-text">
+<span class="mode-option-title">Terminal Mode</span>
+<span class="mode-option-sub">Hacker / CLI aesthetic</span>
+</span>
+<i class="fas fa-check mode-check" aria-hidden="true"></i>
+</button>
+<button type="button" class="mode-option" data-mode="research" role="menuitem">
+<span class="mode-option-icon" aria-hidden="true">&#128218;</span>
+<span class="mode-option-text">
+<span class="mode-option-title">Research Mode</span>
+<span class="mode-option-sub">Academic / arXiv-style look</span>
+</span>
+<i class="fas fa-check mode-check" aria-hidden="true"></i>
+</button>
+</div>
+</div>
 <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)]" aria-label="Toggle menu">
 <i class="fas fa-bars"></i>
 </button>
@@ -89,7 +137,7 @@
 <a href="#projects" class="text-muted hover:text-[var(--primary)] transition-colors">Projects</a>
 <a href="#certifications" class="text-muted hover:text-[var(--primary)] transition-colors">Certifications</a>
 <a href="#contact" class="text-muted hover:text-[var(--primary)] transition-colors">Contact</a>
-<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link sm:hidden btn-primary text-sm justify-center">
+<a href="assets/Anas%27%20Resume.pdf" download class="resume-download-link lg:hidden btn-primary text-sm justify-center">
 <i class="fas fa-download mr-2"></i> Download Resume
 </a>
 </div>
@@ -103,6 +151,7 @@
 <div class="glow-orb w-96 h-96 bg-[var(--primary)] bottom-0 right-0" style="animation-delay:2s;"></div>
 <div class="relative z-10 text-center text-white px-4 pt-24 pb-16 max-w-5xl mx-auto">
 <div class="fade-in">
+<span id="creative-badge">&#127918; Creative Mode Enabled</span>
 <p class="eyebrow text-blue-100 mb-4">Alexandria, Egypt</p>
 <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold font-display mb-4">
 Anas Mohamed El-Gezawy
@@ -133,19 +182,19 @@ Computer Vision, with hands-on experience turning research into deployed, real-w
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto glass rounded-2xl py-6 px-4">
 <div>
 <div class="stat-number text-3xl md:text-4xl font-bold" data-count="15" data-suffix="+">0</div>
-<p class="text-sm text-blue-100 mt-1">AI Projects</p>
+<p class="text-sm text-blue-100 mt-1"><span class="label-normal">AI Projects</span><span class="label-mc">Completed Quests</span></p>
 </div>
 <div>
 <div class="stat-number text-3xl md:text-4xl font-bold" data-count="3" data-suffix="+">0</div>
-<p class="text-sm text-blue-100 mt-1">Internships</p>
+<p class="text-sm text-blue-100 mt-1"><span class="label-normal">Internships</span><span class="label-mc">Guilds Joined</span></p>
 </div>
 <div>
 <div class="stat-number text-3xl md:text-4xl font-bold" data-count="10" data-suffix="+">0</div>
-<p class="text-sm text-blue-100 mt-1">Certifications</p>
+<p class="text-sm text-blue-100 mt-1"><span class="label-normal">Certifications</span><span class="label-mc">Achievements</span></p>
 </div>
 <div>
 <div class="stat-number text-3xl md:text-4xl font-bold" data-count="2" data-suffix="+">0</div>
-<p class="text-sm text-blue-100 mt-1">Years Learning AI</p>
+<p class="text-sm text-blue-100 mt-1"><span class="label-normal">Years Learning AI</span><span class="label-mc">Years Exploring AI</span></p>
 </div>
 </div>
 </div>
@@ -831,7 +880,7 @@ detection in criminal interrogations, combining NLP, Knowledge Graphs, and Graph
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16 fade-in">
 <p class="eyebrow mb-3">Track Record</p>
-<h2 class="text-4xl font-bold font-display mb-4">Achievements</h2>
+<h2 class="text-4xl font-bold font-display mb-4"><span class="label-normal">Achievements</span><span class="label-mc">&#127942; Advancements</span></h2>
 <div class="section-divider mx-auto"></div>
 </div>
 
